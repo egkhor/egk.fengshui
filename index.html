@@ -1,0 +1,2397 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中华玄学全典 · 壬水命主</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;700;900&family=Noto+Sans+TC:wght@200;300;400&family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0D0B08;
+  --ink2: #171410;
+  --paper: #F2E8D0;
+  --paper2: #E8DBBE;
+  --gold: #C9A84C;
+  --gold2: #E8C97A;
+  --gold3: #7A611E;
+  --red: #8B1C1C;
+  --red2: #C43030;
+  --jade: #2A6B5A;
+  --jade2: #3D9E80;
+  --water: #1A3A5C;
+  --water2: #2E6BA0;
+  --water3: #7BB8E0;
+  --wood: #3A5A1A;
+  --wood2: #5A8A2E;
+  --wood3: #8BC85A;
+  --fire: #7A2A0A;
+  --fire2: #C05020;
+  --fire3: #E88050;
+  --earth: #5A4010;
+  --earth2: #8A6830;
+  --earth3: #C8A870;
+  --metal: #3A3A4A;
+  --metal2: #7A7A9A;
+  --metal3: #C0C0D8;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Noto Serif TC', 'Ma Shan Zheng', serif;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ── PASSWORD LOCK SCREEN ── */
+#lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, #1a0f00 0%, #090704 50%, #000 100%);
+  flex-direction: column;
+}
+#lock-screen .lock-nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.07;
+}
+#lock-screen .ln1 { width:500px;height:400px;background:radial-gradient(#C9A84C,transparent);top:-100px;left:-100px; }
+#lock-screen .ln2 { width:400px;height:500px;background:radial-gradient(#2E6BA0,transparent);bottom:-150px;right:-100px; }
+.lock-box {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 50px;
+  border: 1px solid rgba(201,168,76,0.2);
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(8px);
+  max-width: 420px;
+  width: 90%;
+  animation: fadeIn 1.2s ease both;
+}
+.lock-box::before, .lock-box::after,
+.lock-box .lc1, .lock-box .lc2 {
+  content: '';
+  position: absolute;
+  width: 14px; height: 14px;
+  border-color: rgba(201,168,76,0.3);
+  border-style: solid;
+}
+.lock-box::before { top:6px;left:6px; border-width:1px 0 0 1px; }
+.lock-box::after  { top:6px;right:6px; border-width:1px 1px 0 0; }
+.lock-box .lc1    { bottom:6px;left:6px; border-width:0 0 1px 1px; }
+.lock-box .lc2    { bottom:6px;right:6px; border-width:0 1px 1px 0; }
+
+.lock-trigrams {
+  font-size: 22px;
+  letter-spacing: 1em;
+  color: rgba(201,168,76,0.2);
+  margin-bottom: 20px;
+  animation: pulse-gold 3s ease-in-out infinite;
+}
+@keyframes pulse-gold {
+  0%,100% { color: rgba(201,168,76,0.2); }
+  50% { color: rgba(201,168,76,0.5); }
+}
+.lock-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  display: block;
+  filter: drop-shadow(0 0 12px rgba(201,168,76,0.3));
+}
+.lock-title {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 26px;
+  color: var(--gold);
+  letter-spacing: 0.4em;
+  margin-bottom: 6px;
+}
+.lock-sub {
+  font-size: 10px;
+  color: rgba(242,232,208,0.3);
+  letter-spacing: 0.35em;
+  margin-bottom: 36px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.lock-divider {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 28px;
+}
+.lock-label {
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  color: var(--gold3);
+  margin-bottom: 10px;
+  display: block;
+  font-family: 'Noto Sans TC', sans-serif;
+  text-transform: uppercase;
+}
+.lock-input-wrap {
+  position: relative;
+  margin-bottom: 20px;
+}
+.lock-input {
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(201,168,76,0.2);
+  color: var(--gold2);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  padding: 14px 48px 14px 18px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  -webkit-text-security: disc;
+}
+.lock-input:focus {
+  border-color: rgba(201,168,76,0.5);
+  box-shadow: 0 0 20px rgba(201,168,76,0.08);
+}
+.lock-input.error {
+  border-color: rgba(192,80,32,0.7);
+  animation: shake 0.4s ease;
+}
+.lock-input.success {
+  border-color: rgba(123,200,90,0.7);
+  box-shadow: 0 0 20px rgba(123,200,90,0.1);
+}
+.toggle-pw {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  color: rgba(201,168,76,0.4);
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  padding: 4px;
+  -webkit-text-security: none;
+}
+.toggle-pw:hover { color: var(--gold); }
+.lock-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.08));
+  border: 1px solid rgba(201,168,76,0.35);
+  color: var(--gold2);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 16px;
+}
+.lock-btn:hover {
+  background: linear-gradient(135deg, rgba(201,168,76,0.25), rgba(201,168,76,0.15));
+  border-color: rgba(201,168,76,0.6);
+  box-shadow: 0 0 24px rgba(201,168,76,0.12);
+}
+.lock-btn:active { transform: scale(0.98); }
+.lock-error-msg {
+  font-size: 10px;
+  color: var(--fire3);
+  letter-spacing: 0.2em;
+  opacity: 0;
+  transition: opacity 0.3s;
+  margin-bottom: 8px;
+  font-family: 'Noto Sans TC', sans-serif;
+  min-height: 16px;
+}
+.lock-error-msg.show { opacity: 1; }
+.lock-attempts {
+  font-size: 9px;
+  color: rgba(242,232,208,0.2);
+  letter-spacing: 0.2em;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.lock-success-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13,11,8,0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.6s ease;
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 28px;
+  color: var(--gold);
+  letter-spacing: 0.4em;
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+@keyframes unlockFade {
+  0% { opacity: 1; transform: scale(1); }
+  60% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0; transform: scale(0.95); pointer-events: none; }
+}
+.lock-screen-hidden {
+  animation: unlockFade 0.8s ease forwards !important;
+}
+#main-content {
+  display: none;
+}
+#main-content.unlocked {
+  display: block;
+  animation: fadeIn 1s ease both;
+}
+
+/* ── COSMOS BACKGROUND ── */
+#cosmos {
+  position: fixed; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, #1a0f00 0%, #090704 50%, #000 100%);
+  overflow: hidden;
+}
+#cosmos canvas { position: absolute; inset: 0; }
+.nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.06;
+  animation: nebulaPulse 12s ease-in-out infinite alternate;
+}
+.n1 { width:600px;height:400px;background:radial-gradient(#C9A84C,transparent);top:-100px;left:-100px; animation-delay:0s;}
+.n2 { width:500px;height:600px;background:radial-gradient(#2E6BA0,transparent);bottom:-200px;right:-150px; animation-delay:4s;}
+.n3 { width:300px;height:300px;background:radial-gradient(#8B1C1C,transparent);top:40%;left:60%; animation-delay:8s;}
+@keyframes nebulaPulse { from{opacity:0.04;transform:scale(1);} to{opacity:0.09;transform:scale(1.1);} }
+
+/* ── LAYOUT ── */
+.wrap { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:0 24px 100px; }
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 70px 0 50px;
+  position: relative;
+}
+.hero-trigrams {
+  font-size: 32px;
+  letter-spacing: 1.2em;
+  color: rgba(201,168,76,0.25);
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease both;
+}
+.hero-en {
+  font-size: 10px;
+  letter-spacing: 0.6em;
+  color: rgba(242,232,208,0.3);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  animation: fadeIn 1.5s ease 0.3s both;
+}
+.hero-title {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 400;
+  background: linear-gradient(180deg, #E8C97A 0%, #C9A84C 50%, #7A611E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.4em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  text-shadow: none;
+  animation: fadeIn 1.5s ease 0.5s both;
+}
+.hero-sub {
+  font-size: 13px;
+  color: rgba(242,232,208,0.45);
+  letter-spacing: 0.25em;
+  margin-bottom: 36px;
+  animation: fadeIn 1.5s ease 0.7s both;
+}
+.hero-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease 0.9s both;
+}
+.hero-divider-line { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+.hero-divider-line.r { background: linear-gradient(90deg, var(--gold), transparent); }
+.hero-divider-sym { color: var(--gold); font-size: 16px; }
+.hero-birth {
+  font-size: 11px;
+  color: rgba(201,168,76,0.6);
+  letter-spacing: 0.35em;
+  animation: fadeIn 1.5s ease 1.1s both;
+  margin-bottom: 50px;
+}
+
+/* ── NAV TABS ── */
+.nav-scroll {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13,11,8,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  padding: 0;
+  margin: 0 -24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-scroll::-webkit-scrollbar { display: none; }
+.nav-tabs {
+  display: flex;
+  padding: 0 24px;
+  gap: 0;
+  white-space: nowrap;
+  min-width: max-content;
+}
+.nav-tab {
+  padding: 14px 16px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: rgba(242,232,208,0.35);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.nav-tab:hover { color: rgba(242,232,208,0.7); }
+.nav-tab.active {
+  color: var(--gold2);
+  border-bottom-color: var(--gold);
+}
+.nav-tab-icon { font-size: 14px; }
+
+/* ── SECTION BLOCKS ── */
+.section {
+  margin-top: 60px;
+  animation: fadeUp 0.7s ease both;
+}
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.section-icon-big {
+  font-size: 40px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.section-titles { flex: 1; }
+.section-num {
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  color: var(--gold3);
+  margin-bottom: 4px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.section-name-zh {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: clamp(20px, 3vw, 32px);
+  color: var(--gold2);
+  letter-spacing: 0.25em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.section-name-en {
+  font-size: 10px;
+  color: rgba(242,232,208,0.3);
+  letter-spacing: 0.3em;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.section-badge {
+  padding: 4px 12px;
+  border: 1px solid rgba(201,168,76,0.25);
+  font-size: 9px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  background: rgba(201,168,76,0.05);
+}
+
+/* ── CARDS ── */
+.card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,168,76,0.12);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, background 0.3s;
+}
+.card:hover {
+  border-color: rgba(201,168,76,0.28);
+  background: rgba(201,168,76,0.03);
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.card:hover::before { opacity: 1; }
+
+.card-title {
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  color: var(--gold3);
+  margin-bottom: 14px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.card-body {
+  font-size: 13px;
+  line-height: 2.1;
+  color: rgba(242,232,208,0.7);
+  font-weight: 300;
+}
+.card-body strong { color: var(--gold2); font-weight: 400; }
+.card-body em { color: var(--water3); font-style: normal; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+
+/* ── ZIWEI PALACE CHART ── */
+.ziwei-chart {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, auto);
+  gap: 2px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 2px;
+}
+.palace {
+  background: rgba(13,11,8,0.9);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 10px 8px;
+  min-height: 90px;
+  position: relative;
+  transition: background 0.3s, border-color 0.3s;
+  cursor: default;
+}
+.palace:hover {
+  background: rgba(201,168,76,0.05);
+  border-color: rgba(201,168,76,0.3);
+}
+.palace.center-void {
+  grid-column: 2/4;
+  grid-row: 2/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(5,4,3,0.95);
+  border: 1px solid rgba(201,168,76,0.15);
+  gap: 8px;
+}
+.palace.highlight { border-color: rgba(201,168,76,0.5); background: rgba(201,168,76,0.07); }
+.palace-name {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: rgba(201,168,76,0.5);
+  margin-bottom: 6px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.palace-stars {
+  font-size: 11px;
+  color: var(--gold2);
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+}
+.palace-stars span {
+  display: block;
+  font-size: 10px;
+}
+.palace-stars .major { color: var(--gold2); font-size: 12px; }
+.palace-stars .minor { color: rgba(201,168,76,0.5); font-size: 9px; }
+.palace-stars .lucky { color: var(--wood3); font-size: 9px; }
+.palace-stars .unlucky { color: var(--fire3); font-size: 9px; }
+.palace-branch {
+  position: absolute;
+  bottom: 6px; right: 6px;
+  font-size: 9px;
+  color: rgba(201,168,76,0.25);
+}
+.center-title {
+  font-family: 'ZCOOL XiaoWei', serif;
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+}
+.center-sub { font-size: 9px; color: rgba(201,168,76,0.4); letter-spacing: 0.25em; }
+
+/* ── QIMEN GRID ── */
+.qimen-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 3px;
+  background: rgba(139,28,28,0.15);
+  border: 1px solid rgba(139,28,28,0.3);
+  padding: 3px;
+}
+.qimen-cell {
+  background: rgba(13,11,8,0.95);
+  border: 1px solid rgba(139,28,28,0.15);
+  padding: 14px 10px;
+  min-height: 80px;
+  position: relative;
+  transition: all 0.3s;
+}
+.qimen-cell:hover { background: rgba(139,28,28,0.06); border-color: rgba(139,28,28,0.35); }
+.qimen-cell.center-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5,4,3,0.98);
+  border-color: rgba(139,28,28,0.3);
+}
+.qimen-cell.best { border-color: rgba(123,200,90,0.4); background: rgba(58,90,26,0.1); }
+.qimen-dir { font-size: 9px; color: rgba(139,28,28,0.6); letter-spacing: 0.2em; margin-bottom:6px; }
+.qimen-gate { font-size: 13px; color: var(--fire3); margin-bottom:3px; }
+.qimen-star { font-size: 10px; color: rgba(242,232,208,0.5); }
+.qimen-deity { font-size: 9px; color: rgba(201,168,76,0.5); }
+.qimen-advice { font-size: 9px; color: rgba(123,200,90,0.8); margin-top:4px; }
+
+/* ── FLYING STARS ── */
+.fstar-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 3px;
+  background: rgba(42,107,90,0.1);
+  border: 1px solid rgba(42,107,90,0.25);
+  padding: 3px;
+}
+.fstar-cell {
+  background: rgba(13,11,8,0.95);
+  border: 1px solid rgba(42,107,90,0.1);
+  padding: 14px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.3s;
+  cursor: default;
+}
+.fstar-cell:hover { background: rgba(42,107,90,0.05); border-color: rgba(42,107,90,0.3); }
+.fstar-dir { font-size: 9px; color: rgba(61,158,128,0.5); letter-spacing:0.2em; }
+.fstar-nums { display: flex; gap: 6px; align-items: center; }
+.fstar-period { font-size: 24px; color: var(--jade2); font-weight: 200; line-height:1; }
+.fstar-mountain { font-size: 16px; color: rgba(201,168,76,0.7); font-weight: 200; }
+.fstar-water-num { font-size: 16px; color: var(--water3); font-weight: 200; }
+.fstar-meaning { font-size: 9px; color: rgba(242,232,208,0.35); letter-spacing:0.1em; text-align:center; }
+.fstar-cell.wealth { border-color: rgba(201,168,76,0.35); }
+.fstar-cell.caution { border-color: rgba(139,28,28,0.3); }
+
+/* ── PALM / FACE ── */
+.body-reading-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.body-diagram {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,168,76,0.12);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.body-feature {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(201,168,76,0.06);
+  align-items: flex-start;
+}
+.body-feature:last-child { border-bottom: none; }
+.feature-icon { font-size: 18px; flex-shrink: 0; width: 28px; text-align:center; }
+.feature-info { flex: 1; }
+.feature-name { font-size: 11px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 3px; }
+.feature-desc { font-size: 11px; color: rgba(242,232,208,0.55); line-height: 1.7; font-weight: 300; }
+
+/* ── HEXAGRAM ── */
+.hexagram-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 20px;
+}
+.hex-line {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.hex-yang { width: 50px; height: 5px; background: var(--gold); border-radius: 1px; }
+.hex-yin-l { width: 22px; height: 5px; background: var(--gold); border-radius: 1px; }
+.hex-yin-r { width: 22px; height: 5px; background: var(--gold); border-radius: 1px; }
+.hex-space { width: 6px; }
+.hex-name { font-size: 18px; color: var(--gold2); letter-spacing: 0.3em; margin-top: 12px; }
+.hex-meaning { font-size: 11px; color: rgba(242,232,208,0.5); letter-spacing: 0.15em; }
+
+/* ── TAGS ── */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tag {
+  font-size: 9px;
+  padding: 3px 10px;
+  letter-spacing: 0.15em;
+  border-radius: 1px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.tag-gold { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); color: var(--gold2); }
+.tag-water { background: rgba(46,107,160,0.15); border: 1px solid rgba(46,107,160,0.35); color: var(--water3); }
+.tag-fire { background: rgba(192,80,32,0.15); border: 1px solid rgba(192,80,32,0.3); color: var(--fire3); }
+.tag-wood { background: rgba(90,138,46,0.15); border: 1px solid rgba(90,138,46,0.3); color: var(--wood3); }
+.tag-jade { background: rgba(42,107,90,0.15); border: 1px solid rgba(42,107,90,0.3); color: var(--jade2); }
+.tag-red { background: rgba(139,28,28,0.15); border: 1px solid rgba(139,28,28,0.3); color: #E07070; }
+
+/* ── DIVINATION BOX ── */
+.divination-box {
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 28px;
+  background: rgba(201,168,76,0.03);
+  text-align: center;
+  position: relative;
+}
+.divination-box::after {
+  content: '易';
+  position: absolute;
+  right: 16px; bottom: 10px;
+  font-size: 80px;
+  color: rgba(201,168,76,0.04);
+  font-family: 'ZCOOL XiaoWei', serif;
+  line-height: 1;
+}
+.divination-question { font-size: 14px; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 16px; }
+.divination-answer {
+  font-size: 13px;
+  color: rgba(242,232,208,0.7);
+  line-height: 2.1;
+  font-weight: 300;
+  text-align: left;
+}
+
+/* ── OVERVIEW TABLE ── */
+.system-overview {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  margin-top: 20px;
+}
+.overview-cell {
+  background: rgba(13,11,8,0.95);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 16px 10px;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.overview-cell:hover { border-color: rgba(201,168,76,0.35); background: rgba(201,168,76,0.04); }
+.ov-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+.ov-name { font-size: 11px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 4px; }
+.ov-type { font-size: 9px; color: rgba(242,232,208,0.3); letter-spacing: 0.1em; }
+
+/* ── QUOTE BOX ── */
+.quote-box {
+  border-left: 2px solid rgba(201,168,76,0.4);
+  padding: 14px 20px;
+  margin: 16px 0;
+  background: rgba(201,168,76,0.03);
+}
+.quote-text { font-size: 13px; color: rgba(242,232,208,0.65); line-height: 1.9; font-style: italic; font-weight: 300; }
+.quote-source { font-size: 10px; color: rgba(201,168,76,0.4); letter-spacing: 0.2em; margin-top: 6px; }
+
+/* ── NAME STROKES ── */
+.stroke-table { width: 100%; border-collapse: collapse; }
+.stroke-table th {
+  font-size: 9px; letter-spacing: 0.25em; color: var(--gold3);
+  padding: 8px 12px; border-bottom: 1px solid rgba(201,168,76,0.15);
+  font-weight: 400; text-align: left;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.stroke-table td {
+  padding: 10px 12px; border-bottom: 1px solid rgba(201,168,76,0.06);
+  font-size: 12px; color: rgba(242,232,208,0.65);
+}
+.stroke-good { color: var(--wood3); }
+.stroke-caution { color: var(--fire3); }
+.stroke-num { font-size: 18px; color: var(--gold2); font-weight: 200; }
+
+/* ── BAZI LIFE COMPASS STYLES ── */
+.bazi-pillars { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:24px; }
+.bazi-pillar {
+  text-align:center; border:1px solid rgba(201,168,76,0.15);
+  padding:16px 8px; background:rgba(0,0,0,0.2); position:relative; transition:border-color 0.3s;
+}
+.bazi-pillar:hover { border-color:rgba(201,168,76,0.4); }
+.bazi-pillar.dm { border-color:rgba(201,168,76,0.5); background:rgba(201,168,76,0.06); }
+.bp-label { font-size:10px; letter-spacing:0.3em; color:rgba(242,232,208,0.4); margin-bottom:12px; display:block; }
+.bp-tian { font-size:32px; font-weight:300; line-height:1; margin-bottom:6px; }
+.bp-di { font-size:28px; font-weight:300; line-height:1; margin-bottom:8px; }
+.bp-sub { font-size:10px; color:rgba(242,232,208,0.4); letter-spacing:0.1em; }
+.dm-badge { position:absolute; top:6px; right:6px; font-size:9px; background:var(--gold); color:var(--ink); padding:1px 5px; letter-spacing:0.1em; }
+
+.decade-row {
+  display:grid; grid-template-columns:80px 90px 1fr;
+  border:1px solid rgba(201,168,76,0.12); border-bottom:none; transition:background 0.3s; position:relative;
+}
+.decade-row:last-child { border-bottom:1px solid rgba(201,168,76,0.12); }
+.decade-row:hover { background:rgba(201,168,76,0.04); }
+.decade-row.now { background:rgba(201,168,76,0.07); border-color:rgba(201,168,76,0.3); }
+.decade-row.now::before {
+  content:'▶ 现在'; position:absolute; left:-52px; top:50%; transform:translateY(-50%);
+  font-size:9px; color:var(--gold); letter-spacing:0.1em; white-space:nowrap;
+}
+.dr-age { padding:16px 12px; border-right:1px solid rgba(201,168,76,0.12); display:flex; flex-direction:column; justify-content:center; align-items:center; gap:4px; }
+.dr-age-num { font-size:20px; font-weight:300; color:var(--gold); line-height:1; }
+.dr-age-label { font-size:9px; color:rgba(242,232,208,0.35); letter-spacing:0.15em; }
+.dr-age-yr { font-size:8px; color:rgba(201,168,76,0.5); margin-top:4px; letter-spacing:0.05em; }
+.dr-pillar { padding:16px; border-right:1px solid rgba(201,168,76,0.12); display:flex; align-items:center; gap:8px; }
+.dr-chars { display:flex; flex-direction:column; align-items:center; gap:2px; }
+.dr-tian { font-size:24px; font-weight:300; line-height:1; }
+.dr-di { font-size:20px; font-weight:300; line-height:1; }
+.dr-info { font-size:9px; color:rgba(242,232,208,0.35); letter-spacing:0.1em; line-height:1.6; padding-left:6px; border-left:1px solid rgba(201,168,76,0.1); }
+.dr-reading { padding:16px 20px; display:flex; flex-direction:column; justify-content:center; gap:6px; }
+.dr-theme { font-size:13px; color:var(--gold2); letter-spacing:0.15em; font-weight:400; }
+.dr-desc { font-size:12px; color:rgba(242,232,208,0.6); line-height:1.8; font-weight:300; }
+.dr-stars { display:flex; gap:4px; flex-wrap:wrap; margin-top:4px; }
+.stag { font-size:9px; padding:1px 6px; border-radius:1px; letter-spacing:0.1em; }
+.stag-g { background:rgba(43,107,43,0.3); color:#7BC87B; border:1px solid rgba(123,200,123,0.3); }
+.stag-c { background:rgba(139,32,32,0.3); color:#E07070; border:1px solid rgba(224,112,112,0.3); }
+.stag-n { background:rgba(201,168,76,0.15); color:var(--gold); border:1px solid rgba(201,168,76,0.25); }
+
+.year-chips-bazi { display:flex; flex-wrap:wrap; gap:8px; }
+.ychip { border:1px solid rgba(201,168,76,0.15); padding:8px 14px; font-size:11px; background:rgba(0,0,0,0.15); transition:all 0.3s; cursor:default; text-align:center; }
+.ychip:hover { border-color:rgba(201,168,76,0.4); background:rgba(201,168,76,0.05); }
+.ychip.yg { border-color:rgba(123,200,123,0.3); }
+.ychip.ygg { border-color:rgba(201,168,76,0.4); background:rgba(201,168,76,0.06); }
+.ychip.yc { border-color:rgba(224,112,112,0.25); }
+.ychip-yr { display:block; color:var(--gold); font-size:13px; margin-bottom:3px; letter-spacing:0.1em; }
+.ychip-note { display:block; color:rgba(242,232,208,0.45); font-size:9px; letter-spacing:0.05em; }
+
+.bazi-overview-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.bov-card { border:1px solid rgba(201,168,76,0.15); padding:24px 16px; text-align:center; background:rgba(0,0,0,0.2); position:relative; overflow:hidden; }
+.bov-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); opacity:0.3; }
+.bov-icon { font-size:28px; margin-bottom:12px; display:block; filter:saturate(0.8); }
+.bov-label { font-size:10px; letter-spacing:0.3em; color:var(--gold3); margin-bottom:10px; display:block; font-family:'Noto Sans TC',sans-serif; }
+.bov-main { font-size:15px; color:var(--gold2); margin-bottom:8px; line-height:1.4; }
+.bov-sub { font-size:11px; color:rgba(242,232,208,0.5); line-height:1.7; font-weight:300; }
+
+.advice-row { display:flex; gap:16px; align-items:flex-start; padding:16px; border:1px solid rgba(201,168,76,0.1); background:rgba(0,0,0,0.15); margin-bottom:10px; }
+.advice-row:last-child { margin-bottom:0; }
+.advice-roman { font-family:'IM Fell English SC',serif; font-size:22px; color:rgba(201,168,76,0.3); line-height:1; flex-shrink:0; width:30px; text-align:center; }
+.advice-body { flex:1; }
+.advice-h { font-size:13px; color:var(--gold2); margin-bottom:6px; letter-spacing:0.1em; }
+.advice-p { font-size:12px; color:rgba(242,232,208,0.6); line-height:1.9; font-weight:300; }
+
+@media(max-width:700px) {
+  .bazi-pillars { grid-template-columns:repeat(2,1fr); }
+  .bazi-overview-grid { grid-template-columns:1fr; }
+  .decade-row { grid-template-columns:60px 80px 1fr; }
+  .decade-row.now::before { display:none; }
+}
+
+/* ── END BAZI STYLES ── */
+  text-align: center;
+  margin-top: 80px;
+  padding: 40px 0;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+.footer-trigrams { font-size: 24px; letter-spacing: 1em; color: rgba(201,168,76,0.2); margin-bottom: 16px; }
+.footer-text { font-size: 10px; color: rgba(242,232,208,0.2); letter-spacing: 0.3em; line-height: 2.2; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+
+/* ── RESPONSIVE ── */
+@media (max-width:700px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .ziwei-chart { font-size: 10px; }
+  .palace { min-height: 70px; padding: 6px 4px; }
+  .system-overview { grid-template-columns: repeat(2,1fr); }
+  .body-reading-grid { grid-template-columns: 1fr; }
+}
+
+/* ── SCROLL ANIMATION ── */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* corner deco */
+.deco { position:relative; }
+.deco::before,.deco::after {
+  content:'';position:absolute;
+  width:12px;height:12px;
+  border-color:rgba(201,168,76,0.2);
+  border-style:solid;
+}
+.deco::before { top:0;left:0; border-width:1px 0 0 1px; }
+.deco::after { top:0;right:0; border-width:1px 1px 0 0; }
+</style>
+</head>
+<body>
+
+<!-- ══ LOCK SCREEN ══ -->
+<div id="lock-screen">
+  <div class="lock-nebula ln1"></div>
+  <div class="lock-nebula ln2"></div>
+  <div class="lock-box">
+    <div class="lc1"></div>
+    <div class="lc2"></div>
+    <div class="lock-trigrams">☵ ☰ ☲</div>
+    <span class="lock-icon">🔐</span>
+    <div class="lock-title">玄 学 典 籍</div>
+    <div class="lock-sub">Chinese Metaphysics · Private Access</div>
+    <div class="lock-divider"></div>
+    <span class="lock-label">输入密码 · Enter Password</span>
+    <div class="lock-input-wrap">
+      <input class="lock-input" id="pw-input" type="password" placeholder="••••••••••••" autocomplete="off" />
+      <button class="toggle-pw" id="toggle-pw-btn" onclick="togglePw()" title="Show/Hide">👁</button>
+    </div>
+    <div class="lock-error-msg" id="lock-error">密码错误，请重试 · Incorrect password</div>
+    <button class="lock-btn" onclick="checkPassword()">开 启 典 籍 · Unlock</button>
+    <div class="lock-attempts" id="attempt-count"></div>
+  </div>
+</div>
+
+<div id="main-content">
+<div id="cosmos">
+  <div class="nebula n1"></div>
+  <div class="nebula n2"></div>
+  <div class="nebula n3"></div>
+</div>
+
+<div class="wrap">
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-trigrams">☵ ☰ ☲ ☳ ☴ ☶ ☷ ☱</div>
+  <div class="hero-en">Chinese Ancient Metaphysics · Complete Compendium</div>
+  <h1 class="hero-title">中 华 玄 学 全 典</h1>
+  <div class="hero-sub">壬水命主 · 十大玄学系统综合推算</div>
+  <div class="hero-divider">
+    <div class="hero-divider-line"></div>
+    <div class="hero-divider-sym">✦</div>
+    <div class="hero-divider-line r"></div>
+  </div>
+  <div class="hero-birth">癸亥年 甲辰月 壬午日 甲巳时 · 男命 · 1983年4月24日 早上9时</div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav class="nav-scroll">
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="navScrollTo('overview', this)"><span class="nav-tab-icon">☯</span>总览</div>
+    <div class="nav-tab" onclick="navScrollTo('bazi', this)"><span class="nav-tab-icon">🧭</span>八字罗盘</div>
+    <div class="nav-tab" onclick="navScrollTo('ziwei', this)"><span class="nav-tab-icon">🌟</span>紫微斗数</div>
+    <div class="nav-tab" onclick="navScrollTo('qimen', this)"><span class="nav-tab-icon">⚔️</span>奇门遁甲</div>
+    <div class="nav-tab" onclick="navScrollTo('liuren', this)"><span class="nav-tab-icon">🔮</span>六壬</div>
+    <div class="nav-tab" onclick="navScrollTo('taiyi', this)"><span class="nav-tab-icon">👑</span>太乙神数</div>
+    <div class="nav-tab" onclick="navScrollTo('fengshui', this)"><span class="nav-tab-icon">🏠</span>玄空风水</div>
+    <div class="nav-tab" onclick="navScrollTo('naming', this)"><span class="nav-tab-icon">✍️</span>姓名学</div>
+    <div class="nav-tab" onclick="navScrollTo('face', this)"><span class="nav-tab-icon">👁️</span>面相</div>
+    <div class="nav-tab" onclick="navScrollTo('palm', this)"><span class="nav-tab-icon">✋</span>手相</div>
+    <div class="nav-tab" onclick="navScrollTo('meihua', this)"><span class="nav-tab-icon">🌸</span>梅花易数</div>
+    <div class="nav-tab" onclick="navScrollTo('liuyao', this)"><span class="nav-tab-icon">📊</span>六爻</div>
+  </div>
+</nav>
+
+<!-- ══ BAZI LIFE COMPASS ══ -->
+<div class="section reveal" id="bazi">
+  <div class="section-head">
+    <div class="section-icon-big">🧭</div>
+    <div class="section-titles">
+      <div class="section-num">SYSTEM 00 · 四柱八字</div>
+      <div class="section-name-zh">八 字 人 生 罗 盘</div>
+      <div class="section-name-en">BaZi Four Pillars · 40-Year Life Compass</div>
+    </div>
+    <div class="section-badge">命理根基</div>
+  </div>
+
+  <!-- Four Pillars -->
+  <div class="card deco" style="margin-bottom:20px;padding:28px;">
+    <div style="font-size:10px;letter-spacing:0.4em;color:var(--gold3);margin-bottom:20px;font-family:'Noto Sans TC',sans-serif;">四 柱 八 字</div>
+    <div class="bazi-pillars">
+      <div class="bazi-pillar">
+        <span class="bp-label">年 柱</span>
+        <div class="bp-tian" style="color:#7BB8E0">癸</div>
+        <div class="bp-di" style="color:#C8A870">亥</div>
+        <div class="bp-sub">水·水<br>偏印</div>
+      </div>
+      <div class="bazi-pillar">
+        <span class="bp-label">月 柱</span>
+        <div class="bp-tian" style="color:#8BC85A">甲</div>
+        <div class="bp-di" style="color:#C8A870">辰</div>
+        <div class="bp-sub">木·土<br>食神</div>
+      </div>
+      <div class="bazi-pillar dm">
+        <div class="dm-badge">日主</div>
+        <span class="bp-label">日 柱</span>
+        <div class="bp-tian" style="color:#7BB8E0">壬</div>
+        <div class="bp-di" style="color:#E88050">午</div>
+        <div class="bp-sub">水·火<br>正财</div>
+      </div>
+      <div class="bazi-pillar">
+        <span class="bp-label">时 柱</span>
+        <div class="bp-tian" style="color:#8BC85A">甲</div>
+        <div class="bp-di" style="color:#E88050">巳</div>
+        <div class="bp-sub">木·火<br>食神</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(201,168,76,0.1);padding:16px;">
+        <div style="font-size:10px;letter-spacing:0.3em;color:var(--gold3);margin-bottom:10px;font-family:'Noto Sans TC',sans-serif;">日主分析 · 壬水命格</div>
+        <div style="font-size:13px;line-height:1.9;color:rgba(242,232,208,0.75);font-weight:300;">
+          壬水为天河之水，汪洋浩瀚，智慧深邃。<br>
+          局中木火旺盛，为<strong style="color:var(--gold2)">身弱从势</strong>格局。<br>
+          亥水为根，癸水相助，水得一定根基。<br>
+          整体偏弱，喜水金，忌土燥。
+        </div>
+      </div>
+      <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(201,168,76,0.1);padding:16px;">
+        <div style="font-size:10px;letter-spacing:0.3em;color:var(--gold3);margin-bottom:10px;font-family:'Noto Sans TC',sans-serif;">命格特质</div>
+        <div style="font-size:13px;line-height:1.9;color:rgba(242,232,208,0.75);font-weight:300;">
+          <span class="tag tag-gold">聪慧机敏</span><span class="tag tag-gold">创意丰富</span>
+          <span class="tag tag-water">善于思考</span><span class="tag tag-fire">才华横溢</span>
+          <span class="tag tag-gold">多才多艺</span><span class="tag tag-water">贵人运强</span>
+          <br><br>
+          <span style="font-size:11px;color:rgba(242,232,208,0.5);">喜用神：<strong style="color:#7BB8E0">壬癸水</strong>、<strong style="color:#C0C0C0">庚辛金</strong></span><br>
+          <span style="font-size:11px;color:rgba(242,232,208,0.5);">忌凶神：<strong style="color:#C8A870">戊己土</strong>、<strong style="color:#E88050">丙丁火</strong>过旺</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decade Luck 40 Years -->
+  <div style="margin-bottom:24px;">
+    <div class="section-head" style="margin-bottom:14px;padding-bottom:10px;">
+      <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;box-shadow:0 0 8px var(--gold);flex-shrink:0;"></div>
+      <div style="font-size:13px;letter-spacing:0.4em;color:var(--gold);font-weight:400;margin-left:12px;">大 运 流 年 · 四十年罗盘</div>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(201,168,76,0.4),transparent);margin-left:12px;"></div>
+      <span style="font-size:9px;color:rgba(242,232,208,0.3);letter-spacing:0.1em;flex-shrink:0;">起运 8岁</span>
+    </div>
+    <div style="margin-left:60px;">
+      <!-- Current: 癸卯 2026-2035 -->
+      <div class="decade-row now">
+        <div class="dr-age">
+          <div class="dr-age-num">43</div>
+          <div class="dr-age-label">至 52</div>
+          <div class="dr-age-yr">2026–2035</div>
+        </div>
+        <div class="dr-pillar">
+          <div class="dr-chars">
+            <div class="dr-tian" style="color:#7BB8E0">癸</div>
+            <div class="dr-di" style="color:#C8A870">卯</div>
+          </div>
+          <div class="dr-info">水运<br>伤官<br>·<br>食神<br>正印</div>
+        </div>
+        <div class="dr-reading">
+          <div class="dr-theme">☽ 智慧绽放 · 事业高峰</div>
+          <div class="dr-desc">癸水助日主，运势大旺。卯木食神，才华得以充分发挥，创意与执行力并驾齐驱。此十年为命主一生中最重要的黄金期，<strong style="color:var(--gold2)">事业宜大步推进</strong>，财运稳步上升，贵人相助频繁。</div>
+          <div class="dr-stars">
+            <span class="stag stag-g">事业旺</span><span class="stag stag-g">财运升</span>
+            <span class="stag stag-g">贵人助</span><span class="stag stag-n">感情宜稳</span>
+          </div>
+        </div>
+      </div>
+      <!-- 甲辰 2036-2045 -->
+      <div class="decade-row">
+        <div class="dr-age">
+          <div class="dr-age-num">53</div>
+          <div class="dr-age-label">至 62</div>
+          <div class="dr-age-yr">2036–2045</div>
+        </div>
+        <div class="dr-pillar">
+          <div class="dr-chars">
+            <div class="dr-tian" style="color:#8BC85A">甲</div>
+            <div class="dr-di" style="color:#C8A870">辰</div>
+          </div>
+          <div class="dr-info">木运<br>食神<br>·<br>偏财<br>正印</div>
+        </div>
+        <div class="dr-reading">
+          <div class="dr-theme">⚖ 传承布局 · 财富积累</div>
+          <div class="dr-desc">甲木食神透干，创造力持续旺盛，适合将事业经验系统化、传承化。辰土为财库，偏财运入，有机会在投资或多元收入上获得突破。<strong style="color:var(--gold2)">宜守成与扩张并行</strong>，勿过度冒进。</div>
+          <div class="dr-stars">
+            <span class="stag stag-g">财库开</span><span class="stag stag-g">声望高</span>
+            <span class="stag stag-c">防过劳</span><span class="stag stag-n">传承佳</span>
+          </div>
+        </div>
+      </div>
+      <!-- 乙巳 2046-2055 -->
+      <div class="decade-row">
+        <div class="dr-age">
+          <div class="dr-age-num">63</div>
+          <div class="dr-age-label">至 72</div>
+          <div class="dr-age-yr">2046–2055</div>
+        </div>
+        <div class="dr-pillar">
+          <div class="dr-chars">
+            <div class="dr-tian" style="color:#8BC85A">乙</div>
+            <div class="dr-di" style="color:#E88050">巳</div>
+          </div>
+          <div class="dr-info">木运<br>伤官<br>·<br>正财<br>正官</div>
+        </div>
+        <div class="dr-reading">
+          <div class="dr-theme">🜂 转型蜕变 · 内在丰足</div>
+          <div class="dr-desc">乙木伤官，思想活跃但易生争议，需谨言慎行。巳火正财，财务仍有进项，偏向已有资产运营。此运<strong style="color:var(--gold2)">宜转向人生第二春</strong>：精神追求、教育传承、享受生命成果。</div>
+          <div class="dr-stars">
+            <span class="stag stag-n">财稳定</span><span class="stag stag-c">防口舌</span>
+            <span class="stag stag-g">享人生</span><span class="stag stag-c">注意心肾</span>
+          </div>
+        </div>
+      </div>
+      <!-- 丙午 2056-2065 -->
+      <div class="decade-row">
+        <div class="dr-age">
+          <div class="dr-age-num">73</div>
+          <div class="dr-age-label">至 82</div>
+          <div class="dr-age-yr">2056–2065</div>
+        </div>
+        <div class="dr-pillar">
+          <div class="dr-chars">
+            <div class="dr-tian" style="color:#E88050">丙</div>
+            <div class="dr-di" style="color:#E88050">午</div>
+          </div>
+          <div class="dr-info">火运<br>正财<br>·<br>正财<br>七杀</div>
+        </div>
+        <div class="dr-reading">
+          <div class="dr-theme">☀ 晚霞绚烂 · 精神高度</div>
+          <div class="dr-desc">丙午双火，日主壬水受克，身体能量需特别维护。然而财星旺，若年轻时积累得当，此运享有丰厚物质与精神回报。<strong style="color:var(--gold2)">宜修心养性</strong>，行善积德，与家人共享天伦。</div>
+          <div class="dr-stars">
+            <span class="stag stag-n">享晚福</span><span class="stag stag-c">保健康</span>
+            <span class="stag stag-g">精神富</span><span class="stag stag-n">家庭乐</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Years -->
+  <div style="margin-bottom:24px;">
+    <div class="section-head" style="margin-bottom:14px;padding-bottom:10px;">
+      <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;box-shadow:0 0 8px var(--gold);flex-shrink:0;"></div>
+      <div style="font-size:13px;letter-spacing:0.4em;color:var(--gold);margin-left:12px;">关 键 流 年 · 重要节点</div>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(201,168,76,0.4),transparent);margin-left:12px;"></div>
+    </div>
+    <div class="year-chips-bazi">
+      <div class="ychip ygg"><span class="ychip-yr">2026 丙午</span><span class="ychip-note">★ 事业突破年</span></div>
+      <div class="ychip yg"><span class="ychip-yr">2027 丁未</span><span class="ychip-note">财运上升</span></div>
+      <div class="ychip yg"><span class="ychip-yr">2028 戊申</span><span class="ychip-note">贵人金运助</span></div>
+      <div class="ychip yc"><span class="ychip-yr">2029 己酉</span><span class="ychip-note">注意健康</span></div>
+      <div class="ychip ygg"><span class="ychip-yr">2030 庚戌</span><span class="ychip-note">★ 金水大吉</span></div>
+      <div class="ychip ygg"><span class="ychip-yr">2031 辛亥</span><span class="ychip-note">★ 亥水归根旺</span></div>
+      <div class="ychip yg"><span class="ychip-yr">2032 壬子</span><span class="ychip-note">比肩相助</span></div>
+      <div class="ychip yc"><span class="ychip-yr">2033 癸丑</span><span class="ychip-note">谨防破财</span></div>
+      <div class="ychip yg"><span class="ychip-yr">2034 甲寅</span><span class="ychip-note">食神旺发</span></div>
+      <div class="ychip yg"><span class="ychip-yr">2035 乙卯</span><span class="ychip-note">才艺大展</span></div>
+      <div class="ychip ygg"><span class="ychip-yr">2038 戊午</span><span class="ychip-note">★ 财库大开</span></div>
+      <div class="ychip ygg"><span class="ychip-yr">2041 辛酉</span><span class="ychip-note">★ 金水顶峰</span></div>
+      <div class="ychip yc"><span class="ychip-yr">2044 甲子</span><span class="ychip-note">谨慎决策</span></div>
+      <div class="ychip yg"><span class="ychip-yr">2047 丁卯</span><span class="ychip-note">晚年财运</span></div>
+      <div class="ychip yg"><span class="ychip-yr">2050 庚午</span><span class="ychip-note">健康维护</span></div>
+      <div class="ychip ygg"><span class="ychip-yr">2053 癸酉</span><span class="ychip-note">★ 晚福金水旺</span></div>
+      <div class="ychip yg"><span class="ychip-yr">2056 丙子</span><span class="ychip-note">子水护日主</span></div>
+      <div class="ychip yc"><span class="ychip-yr">2059 己卯</span><span class="ychip-note">防慢性病</span></div>
+      <div class="ychip yg"><span class="ychip-yr">2062 壬午</span><span class="ychip-note">与日柱共振</span></div>
+      <div class="ychip ygg"><span class="ychip-yr">2064 甲申</span><span class="ychip-note">★ 金木平衡佳</span></div>
+    </div>
+    <div style="margin-top:12px;font-size:10px;color:rgba(242,232,208,0.3);letter-spacing:0.15em;">★ 特别吉利年份 &nbsp;|&nbsp; 普通吉年 &nbsp;|&nbsp; 需谨慎年份</div>
+  </div>
+
+  <!-- Life Advice -->
+  <div style="margin-bottom:24px;">
+    <div class="section-head" style="margin-bottom:14px;padding-bottom:10px;">
+      <div style="width:6px;height:6px;background:var(--gold);border-radius:50%;box-shadow:0 0 8px var(--gold);flex-shrink:0;"></div>
+      <div style="font-size:13px;letter-spacing:0.4em;color:var(--gold);margin-left:12px;">命 理 启 示 · 人生指引</div>
+      <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(201,168,76,0.4),transparent);margin-left:12px;"></div>
+    </div>
+    <div class="advice-row">
+      <div class="advice-roman">I</div>
+      <div class="advice-body">
+        <div class="advice-h">事业方向 — 以智慧和创意为核心</div>
+        <div class="advice-p">壬水主智，甲木食神双透，天生具备创意、表达与策划之才。最适合从事需要思维深度的领域：科技创新、咨询顾问、创意产业、金融分析、教育培训、写作媒体。现阶段（癸卯大运）是建立个人品牌与专业权威的黄金十年，宜主动出击，扩大影响力。</div>
+      </div>
+    </div>
+    <div class="advice-row">
+      <div class="advice-roman">II</div>
+      <div class="advice-body">
+        <div class="advice-h">财富观 — 稳健理财，善用财库</div>
+        <div class="advice-p">午火、巳火为正财偏财，财星有力，具备赚钱能力。但壬水身弱，财多身弱需防散财。建议：以稳健投资为主（房地产、债券、蓝筹股），避免高风险投机。2030–2035年（辛亥、壬子流年）为累积资产的最佳时机，务必把握。</div>
+      </div>
+    </div>
+    <div class="advice-row">
+      <div class="advice-roman">III</div>
+      <div class="advice-body">
+        <div class="advice-h">感情婚姻 — 水火相济，包容为上</div>
+        <div class="advice-p">日坐午火正财，伴侣往往热情、独立、有主见。水火相配，性格互补，但需学会沟通包容。乙巳大运（63–72岁）感情需特别经营，宜以耐心化解摩擦，共同规划晚年生活。</div>
+      </div>
+    </div>
+    <div class="advice-row">
+      <div class="advice-roman">IV</div>
+      <div class="advice-body">
+        <div class="advice-h">健康保健 — 护水补金，养肾为本</div>
+        <div class="advice-p">壬水命主，肾脏与泌尿系统需重点关注。木旺耗水，肝脏亦需护养。日支午火，心血管系统留意。建议：充足睡眠（补水气），避免过度用脑，定期运动（游泳、太极最佳）。2026年起进入新大运，先做全面体检为宜。</div>
+      </div>
+    </div>
+    <div class="advice-row">
+      <div class="advice-roman">V</div>
+      <div class="advice-body">
+        <div class="advice-h">风水吉向 — 善用方位增运</div>
+        <div class="advice-p">喜用方位：<strong style="color:#7BB8E0">北方（水）</strong>、<strong style="color:#C0C0D8">西方（金）</strong>。居所或办公室宜面北或面西，书桌朝北有助提升思维清晰度。幸运数字：1、6（水数）、4、9（金数）。幸运颜色：深蓝、黑、藏青（水色）；银白、金灰（金色）。避免大量使用红色、橙色于工作空间。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overview Cards -->
+  <div class="bazi-overview-grid">
+    <div class="bov-card">
+      <span class="bov-icon">🌊</span>
+      <span class="bov-label">命主特质</span>
+      <div class="bov-main">智深如海</div>
+      <div class="bov-sub">壬水汪洋，思维深邃，洞察力强，善于在复杂局面中寻找突破。一生中遇贵人颇多，他人缘佳。</div>
+    </div>
+    <div class="bov-card">
+      <span class="bov-icon">⭐</span>
+      <span class="bov-label">一生总运</span>
+      <div class="bov-main">中年大旺</div>
+      <div class="bov-sub">40至60岁为人生高峰期。年轻时打基础，中年厚积薄发，晚年享福。属于越走越顺的命格。</div>
+    </div>
+    <div class="bov-card">
+      <span class="bov-icon">🗝</span>
+      <span class="bov-label">成功关键</span>
+      <div class="bov-main">以柔克刚</div>
+      <div class="bov-sub">壬水特质，不争第一，以智取胜。与人合作时展现包容与灵活，方能聚集资源，成就大事。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ OVERVIEW ══ -->
+<div class="section reveal" id="overview">
+  <div class="section-head">
+    <div class="section-icon-big">☯</div>
+    <div class="section-titles">
+      <div class="section-num">INTRODUCTION · 01</div>
+      <div class="section-name-zh">十 大 系 统 总 览</div>
+      <div class="section-name-en">Ten Systems of Chinese Metaphysics</div>
+    </div>
+    <div class="section-badge">壬水命主</div>
+  </div>
+
+  <div class="card deco" style="margin-bottom:20px;">
+    <div class="card-body">
+      中华玄学（Chinese Metaphysics）是一套以<strong>阴阳、五行、天干地支</strong>为基础，涵盖命理、占卜、风水、相学的完整宇宙认知体系。
+      不同系统各有侧重：有的看<strong>先天命格</strong>（命由天定），有的看<strong>后天时机</strong>（运由己造），有的看<strong>空间能量</strong>（境改命运）。
+      综合运用，方能对人生有360度的全面洞察。
+    </div>
+  </div>
+
+  <div class="system-overview">
+    <div class="overview-cell" onclick="navScrollTo('ziwei', this)">
+      <span class="ov-icon">🌟</span>
+      <div class="ov-name">紫微斗数</div>
+      <div class="ov-type">先天命格</div>
+    </div>
+    <div class="overview-cell" onclick="navScrollTo('qimen', this)">
+      <span class="ov-icon">⚔️</span>
+      <div class="ov-name">奇门遁甲</div>
+      <div class="ov-type">时机策略</div>
+    </div>
+    <div class="overview-cell" onclick="navScrollTo('liuren', this)">
+      <span class="ov-icon">🔮</span>
+      <div class="ov-name">六壬神课</div>
+      <div class="ov-type">占问玄机</div>
+    </div>
+    <div class="overview-cell" onclick="navScrollTo('taiyi', this)">
+      <span class="ov-icon">👑</span>
+      <div class="ov-name">太乙神数</div>
+      <div class="ov-type">宏观天数</div>
+    </div>
+    <div class="overview-cell" onclick="navScrollTo('fengshui', this)">
+      <span class="ov-icon">🏠</span>
+      <div class="ov-name">玄空风水</div>
+      <div class="ov-type">空间能量</div>
+    </div>
+    <div class="overview-cell" onclick="navScrollTo('naming', this)">
+      <span class="ov-icon">✍️</span>
+      <div class="ov-name">姓名学</div>
+      <div class="ov-type">名字能量</div>
+    </div>
+    <div class="overview-cell" onclick="navScrollTo('face', this)">
+      <span class="ov-icon">👁️</span>
+      <div class="ov-name">面相学</div>
+      <div class="ov-type">形态相法</div>
+    </div>
+    <div class="overview-cell" onclick="navScrollTo('palm', this)">
+      <span class="ov-icon">✋</span>
+      <div class="ov-name">手相学</div>
+      <div class="ov-type">掌纹命理</div>
+    </div>
+    <div class="overview-cell" onclick="navScrollTo('meihua', this)">
+      <span class="ov-icon">🌸</span>
+      <div class="ov-name">梅花易数</div>
+      <div class="ov-type">易卦占算</div>
+    </div>
+    <div class="overview-cell" onclick="navScrollTo('liuyao', this)">
+      <span class="ov-icon">📊</span>
+      <div class="ov-name">六爻纳甲</div>
+      <div class="ov-type">卦象占问</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 1. ZIWEI ══ -->
+<div class="section reveal" id="ziwei">
+  <div class="section-head">
+    <div class="section-icon-big">🌟</div>
+    <div class="section-titles">
+      <div class="section-num">SYSTEM 01 · 紫微斗数</div>
+      <div class="section-name-zh">紫 微 斗 数</div>
+      <div class="section-name-en">Zi Wei Dou Shu · Purple Star Astrology</div>
+    </div>
+    <div class="section-badge">Emperor's Astrology</div>
+  </div>
+
+  <div class="quote-box">
+    <div class="quote-text">「紫微斗数，以命宫为本，十二宫纵横，星曜会照，一生荣辱皆在其中。」</div>
+    <div class="quote-source">— 陈希夷 《紫微斗数全书》</div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">壬水命主 · 紫微星盘基本格局</div>
+    <div class="card-body">
+      以农历1983年三月十二、早上巳时生人推算，命宫落于<strong>丑宫</strong>，安命在丑，
+      紫微星系落于<strong>午宫（财帛宫方向）</strong>，天机星守命，<strong>天梁星</strong>会照。
+      此格局为「<strong>机梁守命</strong>」之象，主聪慧过人、处世圆融、善解人意，
+      一生中贵人频至，凭智慧与才华立足。
+    </div>
+    <div class="tags">
+      <span class="tag tag-gold">机梁守命</span>
+      <span class="tag tag-water">智慧型命格</span>
+      <span class="tag tag-jade">贵人运强</span>
+      <span class="tag tag-gold">处世圆融</span>
+    </div>
+  </div>
+
+  <!-- Ziwei 12 Palace Chart -->
+  <div class="ziwei-chart" style="margin-bottom:16px;">
+    <!-- Row 1: 巳 午 未 申 -->
+    <div class="palace">
+      <div class="palace-name">夫妻宫 · 巳</div>
+      <div class="palace-stars">
+        <span class="major">廉贞</span>
+        <span class="minor">天府</span>
+        <span class="lucky">红鸾</span>
+      </div>
+      <div class="palace-branch">巳</div>
+    </div>
+    <div class="palace highlight">
+      <div class="palace-name">兄弟宫 · 午</div>
+      <div class="palace-stars">
+        <span class="major">紫微</span>
+        <span class="minor">天相</span>
+        <span class="lucky">天魁</span>
+      </div>
+      <div class="palace-branch">午</div>
+    </div>
+    <div class="palace">
+      <div class="palace-name">命宫 · 未</div>
+      <div class="palace-stars">
+        <span class="major">天机</span>
+        <span class="minor">天梁</span>
+        <span class="lucky">文昌</span>
+      </div>
+      <div class="palace-branch">未</div>
+    </div>
+    <div class="palace">
+      <div class="palace-name">父母宫 · 申</div>
+      <div class="palace-stars">
+        <span class="major">太阳</span>
+        <span class="lucky">天贵</span>
+        <span class="unlucky">陀罗</span>
+      </div>
+      <div class="palace-branch">申</div>
+    </div>
+    <!-- Row 2: 辰 | CENTER | 酉 -->
+    <div class="palace">
+      <div class="palace-name">子女宫 · 辰</div>
+      <div class="palace-stars">
+        <span class="major">武曲</span>
+        <span class="minor">破军</span>
+        <span class="lucky">左辅</span>
+      </div>
+      <div class="palace-branch">辰</div>
+    </div>
+    <div class="palace center-void">
+      <div class="center-title">紫微命盘</div>
+      <div class="center-sub">壬水命主</div>
+      <div class="center-sub" style="margin-top:4px;font-size:8px;">癸亥 · 甲辰 · 壬午 · 甲巳</div>
+    </div>
+    <div class="palace">
+      <div class="palace-name">福德宫 · 酉</div>
+      <div class="palace-stars">
+        <span class="major">天同</span>
+        <span class="lucky">右弼</span>
+        <span class="minor">天钺</span>
+      </div>
+      <div class="palace-branch">酉</div>
+    </div>
+    <!-- Row 3: 卯 | CENTER | 戌 -->
+    <div class="palace">
+      <div class="palace-name">财帛宫 · 卯</div>
+      <div class="palace-stars">
+        <span class="major">太阴</span>
+        <span class="lucky">天姚</span>
+        <span class="lucky">禄存</span>
+      </div>
+      <div class="palace-branch">卯</div>
+    </div>
+    <div class="palace">
+      <div class="palace-name">田宅宫 · 戌</div>
+      <div class="palace-stars">
+        <span class="major">贪狼</span>
+        <span class="unlucky">火星</span>
+        <span class="minor">地劫</span>
+      </div>
+      <div class="palace-branch">戌</div>
+    </div>
+    <!-- Row 4: 寅 丑 子 亥 -->
+    <div class="palace">
+      <div class="palace-name">疾厄宫 · 寅</div>
+      <div class="palace-stars">
+        <span class="major">天府</span>
+        <span class="lucky">恩光</span>
+        <span class="minor">截空</span>
+      </div>
+      <div class="palace-branch">寅</div>
+    </div>
+    <div class="palace">
+      <div class="palace-name">迁移宫 · 丑</div>
+      <div class="palace-stars">
+        <span class="major">七杀</span>
+        <span class="unlucky">铃星</span>
+        <span class="lucky">天福</span>
+      </div>
+      <div class="palace-branch">丑</div>
+    </div>
+    <div class="palace">
+      <div class="palace-name">奴仆宫 · 子</div>
+      <div class="palace-stars">
+        <span class="major">天巨</span>
+        <span class="lucky">天喜</span>
+        <span class="minor">空劫</span>
+      </div>
+      <div class="palace-branch">子</div>
+    </div>
+    <div class="palace">
+      <div class="palace-name">官禄宫 · 亥</div>
+      <div class="palace-stars">
+        <span class="major">天同</span>
+        <span class="minor">天梁</span>
+        <span class="lucky">文曲</span>
+      </div>
+      <div class="palace-branch">亥</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">命宫解读</div>
+      <div class="card-body">命宫天机星守，文昌同宫，主<strong>智慧超群、学识渊博、思维敏锐</strong>。天梁会照，带有长者之风，处世稳重。此命格之人往往是众人中的<strong>智识权威</strong>，能以言语、文字、策略影响他人。</div>
+    </div>
+    <div class="card">
+      <div class="card-title">官禄宫（事业）</div>
+      <div class="card-body">官禄宫在亥，天同天梁居之，<strong>事业属学术、顾问、策划型</strong>。不宜纯体力或重复机械之工作。最适：教育、咨询、科技、金融策划、创意产业、媒体。文曲入宫，<strong>写作与表达能力为重要助力</strong>。</div>
+    </div>
+    <div class="card">
+      <div class="card-title">财帛宫（财运）</div>
+      <div class="card-body">财帛宫太阴入卯，禄存同宫，是<strong>稳健积财</strong>之格局。太阴为阴柔财，财来自智慧、服务与专业，非横财偏财。禄存守财，<strong>有守财护财之能</strong>，理财宜保守稳健，适合定期储蓄与房产投资。</div>
+    </div>
+    <div class="card">
+      <div class="card-title">夫妻宫（感情）</div>
+      <div class="card-body">夫妻宫廉贞天府居巳，<strong>伴侣多属能干、有主见、事业心强</strong>之人。廉贞带感情热烈但易生变化，需学会沟通与包容。天府则带稳定性。<strong>宜晚婚</strong>，30岁后方见稳定感情，婚后生活物质充裕。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 2. QIMEN ══ -->
+<div class="section reveal" id="qimen">
+  <div class="section-head">
+    <div class="section-icon-big">⚔️</div>
+    <div class="section-titles">
+      <div class="section-num">SYSTEM 02 · 奇门遁甲</div>
+      <div class="section-name-zh">奇 门 遁 甲</div>
+      <div class="section-name-en">Qi Men Dun Jia · Mystical Door Stratagem</div>
+    </div>
+    <div class="section-badge">Strategic Timing</div>
+  </div>
+
+  <div class="quote-box">
+    <div class="quote-text">「奇门遁甲者，天时地利人和之综合也。知时者胜，知地者存，知人者强。」</div>
+    <div class="quote-source">— 《奇门遁甲秘笈》</div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">奇门概论 · 壬水命主用法</div>
+    <div class="card-body">
+      奇门遁甲以<strong>天干、八卦、九星、八门、八神</strong>组成时空矩阵，专注于<strong>「何时行动、往何方位」</strong>才能借天时地利。
+      壬水命主喜<strong>水、金</strong>，在奇门中对应<strong>坎卦（北）、兑乾（西北西）</strong>方位最为有利。
+      出行、谈判、签约、求职宜选<strong>天辅星、天心星、天禽星</strong>当值之时，配合<strong>开门、生门、休门</strong>行事。
+    </div>
+  </div>
+
+  <div class="qimen-grid" style="margin-bottom:16px;">
+    <div class="qimen-cell best">
+      <div class="qimen-dir">东南 · 巽</div>
+      <div class="qimen-gate">杜门</div>
+      <div class="qimen-star">天辅星</div>
+      <div class="qimen-deity">九天神</div>
+    </div>
+    <div class="qimen-cell best">
+      <div class="qimen-dir">南 · 离</div>
+      <div class="qimen-gate">景门 ★</div>
+      <div class="qimen-star">天英星</div>
+      <div class="qimen-deity">朱雀神</div>
+      <div class="qimen-advice">财运方 宜谈生意</div>
+    </div>
+    <div class="qimen-cell">
+      <div class="qimen-dir">西南 · 坤</div>
+      <div class="qimen-gate">死门</div>
+      <div class="qimen-star">天芮星</div>
+      <div class="qimen-deity">腾蛇神</div>
+    </div>
+    <div class="qimen-cell best">
+      <div class="qimen-dir">东 · 震</div>
+      <div class="qimen-gate">伤门</div>
+      <div class="qimen-star">天冲星</div>
+      <div class="qimen-deity">白虎神</div>
+    </div>
+    <div class="qimen-cell center-cell">
+      <div style="text-align:center">
+        <div style="font-size:20px;color:var(--gold);letter-spacing:0.3em;">中宫</div>
+        <div style="font-size:10px;color:rgba(201,168,76,0.4);margin-top:4px;">戊土守中</div>
+      </div>
+    </div>
+    <div class="qimen-cell best">
+      <div class="qimen-dir">西 · 兑</div>
+      <div class="qimen-gate">开门 ★★</div>
+      <div class="qimen-star">天柱星</div>
+      <div class="qimen-deity">六合神</div>
+      <div class="qimen-advice">壬水最喜 出行大吉</div>
+    </div>
+    <div class="qimen-cell">
+      <div class="qimen-dir">东北 · 艮</div>
+      <div class="qimen-gate">生门</div>
+      <div class="qimen-star">天任星</div>
+      <div class="qimen-deity">太阴神</div>
+    </div>
+    <div class="qimen-cell best">
+      <div class="qimen-dir">北 · 坎</div>
+      <div class="qimen-gate">休门 ★★</div>
+      <div class="qimen-star">天蓬星</div>
+      <div class="qimen-deity">值符神</div>
+      <div class="qimen-advice">壬水归宿 休养补能</div>
+    </div>
+    <div class="qimen-cell">
+      <div class="qimen-dir">西北 · 乾</div>
+      <div class="qimen-gate">惊门</div>
+      <div class="qimen-star">天心星</div>
+      <div class="qimen-deity">玄武神</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">命主最佳行动方位</div>
+      <div class="card-body">
+        <strong>西方（开门）</strong>：出行、签约、谈判首选，金生水，贵人在西。<br>
+        <strong>北方（休门）</strong>：静修、规划、休整之所，水旺归根，思维最清晰。<br>
+        <strong>南方（景门）</strong>：财运方，适合商业洽谈、展示才华、拓展人脉。
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">奇门择日建议</div>
+      <div class="card-body">
+        重大决策宜选<strong>庚辛日、亥子日</strong>（金水日）行事。<br>
+        签约合同：选<strong>开门值日</strong>之辰时、巳时。<br>
+        求职面试：选<strong>天辅星、天心星</strong>当值时辰。<br>
+        投资决策：<strong>避免戊己土日</strong>，忌土克水。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 3. LIUREN ══ -->
+<div class="section reveal" id="liuren">
+  <div class="section-head">
+    <div class="section-icon-big">🔮</div>
+    <div class="section-titles">
+      <div class="section-num">SYSTEM 03 · 六壬神课</div>
+      <div class="section-name-zh">六 壬 神 课</div>
+      <div class="section-name-en">Liu Ren · Six Ren Divination</div>
+    </div>
+    <div class="section-badge">三式之一</div>
+  </div>
+
+  <div class="quote-box">
+    <div class="quote-text">「六壬者，壬为水，天一生水，水为万物之源，六者阴数之极，以六壬占，知天机之运化。」</div>
+    <div class="quote-source">— 《大六壬指南》</div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">六壬 · 系统简介与壬水命主特殊关联</div>
+    <div class="card-body">
+      六壬是「三式」之首（六壬、太乙、奇门），以<strong>十二天将配地支</strong>构成占课，
+      专注解答<strong>具体事件的吉凶走向</strong>。六壬之名来自「壬」字——而命主日主正是<strong>壬水</strong>，
+      与此系统有天然共鸣，古人称「壬水人最善六壬占」。
+      六壬十二将各掌一领域，以<strong>贵人、螣蛇、朱雀、六合、勾陈、青龙、天空、白虎、太常、玄武、太阴、天后</strong>十二神将作为吉凶符号。
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:16px;">
+    <div class="card">
+      <div class="card-title">十二天将与命主人生对照</div>
+      <div class="card-body">
+        <strong style="color:var(--gold2)">贵人（天乙贵人）</strong>：主贵人相助、贵显运旺。命主年干癸水，贵人在卯酉，一生多逢贵人于东方。<br><br>
+        <strong style="color:var(--wood3)">青龙</strong>：主财、官、喜庆。逢青龙运，财运亨通，事业上升，为命主最喜之神将。<br><br>
+        <strong style="color:var(--water3)">太阴</strong>：主阴谋、暗助、女性贵人。命主有太阴星助，常有女性贵人在关键时刻出现。<br><br>
+        <strong style="color:var(--fire3)">白虎</strong>：主凶、病、灾。命主逢白虎年需特别注意健康与意外，属须防范之神将。
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">六壬四课起法 · 流年2026占课示例</div>
+      <div class="card-body">
+        以2026年丙午年、癸卯月为起点起课：<br><br>
+        <strong>第一课</strong>：丙午（日干支）— 主事业动向<br>
+        <strong>第二课</strong>：癸水（日主）— 主内在状态<br>
+        <strong>第三课</strong>：卯木（食神）— 才华表现机会<br>
+        <strong>第四课</strong>：子水（贵人位）— 贵人助力显现<br><br>
+        课象判断：<strong>青龙乘卯木为用神</strong>，丙午年主命主才华大展，有重要合作机会。贵人在子，北方或从事金融科技之友人为关键贵人。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">六壬十二将 · 命主一生运势神将分布</div>
+    <div class="card-body" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+      <div><strong style="color:var(--gold2)">贵人 ★★★</strong><br><span style="font-size:11px;color:rgba(242,232,208,0.5);">主贵显，贵人多</span></div>
+      <div><strong style="color:var(--wood3)">青龙 ★★★</strong><br><span style="font-size:11px;color:rgba(242,232,208,0.5);">财运亨通，升迁顺</span></div>
+      <div><strong style="color:var(--water3)">太阴 ★★</strong><br><span style="font-size:11px;color:rgba(242,232,208,0.5);">暗助贵人，女缘好</span></div>
+      <div><strong style="color:var(--jade2)">六合 ★★</strong><br><span style="font-size:11px;color:rgba(242,232,208,0.5);">合作顺，人缘佳</span></div>
+      <div><strong style="color:var(--water3)">天后 ★★</strong><br><span style="font-size:11px;color:rgba(242,232,208,0.5);">感情顺，家庭和</span></div>
+      <div><strong style="color:rgba(242,232,208,0.4)">玄武 ★</strong><br><span style="font-size:11px;color:rgba(242,232,208,0.5);">防小人，慎财务</span></div>
+      <div><strong style="color:var(--fire3)">白虎 ✗</strong><br><span style="font-size:11px;color:rgba(242,232,208,0.5);">防病灾，注意安全</span></div>
+      <div><strong style="color:var(--fire3)">螣蛇 ✗</strong><br><span style="font-size:11px;color:rgba(242,232,208,0.5);">防虚惊，勿信谣言</span></div>
+      <div><strong style="color:rgba(242,232,208,0.4)">太常 ★</strong><br><span style="font-size:11px;color:rgba(242,232,208,0.5);">饮食享受，平稳</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 4. TAIYI ══ -->
+<div class="section reveal" id="taiyi">
+  <div class="section-head">
+    <div class="section-icon-big">👑</div>
+    <div class="section-titles">
+      <div class="section-num">SYSTEM 04 · 太乙神数</div>
+      <div class="section-name-zh">太 乙 神 数</div>
+      <div class="section-name-en">Tai Yi Shen Shu · Supreme One Divine Numbers</div>
+    </div>
+    <div class="section-badge">三式之尊</div>
+  </div>
+
+  <div class="quote-box">
+    <div class="quote-text">「太乙者，天帝之使，主宰风云雷雨，天地变化，国家兴衰，皆在其掌中。」</div>
+    <div class="quote-source">— 《太乙金镜式经》唐·王希明</div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">太乙神数 · 系统概述</div>
+    <div class="card-body">
+      太乙神数是三式中最为宏观、最难掌握的系统，历史上主要用于<strong>预测国运、战争、天灾、政治走向</strong>，而非个人命理。
+      但以太乙数理推算个人所处的<strong>「太乙积年数」</strong>，可了解命主生于哪个天道大周期，所处时代能量如何影响个人命运走向。
+      太乙以<strong>16年为一局，576年为一大周期</strong>，当前（2026年）处于第X局的太乙运行区间。
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:16px;">
+    <div class="card">
+      <div class="card-title">命主太乙积年推算</div>
+      <div class="card-body">
+        1983年出生，处于太乙<strong>第36积年周期</strong>的「文星当令」时段。
+        此周期特征：<strong>文化、科技、知识经济崛起</strong>为时代主旋律，顺应此势者腾飞，逆之者滞。
+        <br><br>
+        壬水命主的出生恰逢<strong>太乙「坎卦主令」</strong>之年，坎为水、为智慧、为潜藏，
+        与日主壬水高度共振，天人合一之象，主此生以智识成就人生。
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">2026–2040 太乙大势判断</div>
+      <div class="card-body">
+        当前太乙运行进入<strong>「震木当令」</strong>阶段（2024–2039），
+        主天下「新生事物涌现、旧秩序更替、创新者崛起」。
+        <br><br>
+        对壬水命主而言：震木为食神，<strong>此乃一生中思想与创意最受时代认可之期</strong>。
+        顺势而为，主动进入新兴领域（AI、绿能、生命科学），可享时代红利。
+        <br><br>
+        2040后进入「兑金当令」，对壬水更有利，届时可厚积而薄发。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">太乙十六将 · 命主所属将神</div>
+    <div class="card-body">
+      以1983年生人积年推算，命主太乙本命将神为<strong>「文昌将」</strong>（主文学、智慧、考试、名誉），
+      为太乙十六将中最利读书人与知识型专业者之神将。<br><br>
+      运行大将：2026–2030年为<strong>「天目将」</strong>当值，主命主眼光独到、判断精准，
+      适合做重大布局与策略规划；2031–2039年转为<strong>「太乙将」</strong>亲临，为命主一生最旺之运程，
+      事业与声名并进，可期一生最高成就。
+    </div>
+    <div class="tags">
+      <span class="tag tag-gold">文昌将本命</span>
+      <span class="tag tag-water">坎水共振</span>
+      <span class="tag tag-jade">2031 太乙亲临</span>
+      <span class="tag tag-wood">震木顺势期</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 5. FENGSHUI ══ -->
+<div class="section reveal" id="fengshui">
+  <div class="section-head">
+    <div class="section-icon-big">🏠</div>
+    <div class="section-titles">
+      <div class="section-num">SYSTEM 05 · 玄空风水</div>
+      <div class="section-name-zh">紫 白 飞 星 · 玄 空 风 水</div>
+      <div class="section-name-en">Xuan Kong Fei Xing · Flying Stars Feng Shui</div>
+    </div>
+    <div class="section-badge">Space & Time Energy</div>
+  </div>
+
+  <div class="quote-box">
+    <div class="quote-text">「玄空者，玄妙之气也。以元运统山向，飞星入中宫，九宫洛书，吉凶立判。」</div>
+    <div class="quote-source">— 沈竹礽 《沈氏玄空学》</div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">当前元运 · 九运（2024–2043）飞星格局</div>
+    <div class="card-body">
+      2024年起进入<strong>九运（离火当令）</strong>，运星为9紫离火。
+      此运<strong>南方、火、AI科技、创意、媒体、女性力量</strong>为当令得势。
+      壬水命主于九运中，水被火旺克制，需<strong>主动布局化解，善用飞星补助</strong>。
+      关键：在住所/办公室<strong>北方（坎位）</strong>置水局补旺日主，<strong>西方（兑位）</strong>置金气增旺。
+    </div>
+  </div>
+
+  <div style="margin-bottom:16px;">
+    <div style="font-size:10px;letter-spacing:0.3em;color:var(--gold3);margin-bottom:10px;font-family:'Noto Sans TC',sans-serif;">九运飞星九宫图（2024–2043）</div>
+    <div class="fstar-grid">
+      <!-- SE S SW -->
+      <div class="fstar-cell">
+        <div class="fstar-dir">东南</div>
+        <div class="fstar-nums"><span class="fstar-mountain">5</span><span style="color:rgba(201,168,76,0.3);font-size:12px;">/</span><span class="fstar-water-num">1</span></div>
+        <div class="fstar-meaning">五黄入SE<br>谨防灾祸</div>
+      </div>
+      <div class="fstar-cell wealth">
+        <div class="fstar-dir">南 ★财位</div>
+        <div class="fstar-nums"><span class="fstar-mountain">1</span><span style="color:rgba(201,168,76,0.3);font-size:12px;">/</span><span class="fstar-water-num">6</span></div>
+        <div class="fstar-meaning">旺气当令<br>事业财运旺</div>
+      </div>
+      <div class="fstar-cell">
+        <div class="fstar-dir">西南</div>
+        <div class="fstar-nums"><span class="fstar-mountain">3</span><span style="color:rgba(201,168,76,0.3);font-size:12px;">/</span><span class="fstar-water-num">8</span></div>
+        <div class="fstar-meaning">三碧是非<br>防口舌</div>
+      </div>
+      <!-- E CENTER W -->
+      <div class="fstar-cell">
+        <div class="fstar-dir">东</div>
+        <div class="fstar-nums"><span class="fstar-mountain">4</span><span style="color:rgba(201,168,76,0.3);font-size:12px;">/</span><span class="fstar-water-num">2</span></div>
+        <div class="fstar-meaning">文昌桃花<br>利读书</div>
+      </div>
+      <div class="fstar-cell" style="background:rgba(201,168,76,0.04);border-color:rgba(201,168,76,0.2);">
+        <div class="fstar-dir">中宫</div>
+        <div class="fstar-nums"><span class="fstar-period" style="font-size:30px;">9</span></div>
+        <div class="fstar-meaning">九运元运星<br>离火当令</div>
+      </div>
+      <div class="fstar-cell wealth">
+        <div class="fstar-dir">西 ★壬水喜</div>
+        <div class="fstar-nums"><span class="fstar-mountain">6</span><span style="color:rgba(201,168,76,0.3);font-size:12px;">/</span><span class="fstar-water-num">4</span></div>
+        <div class="fstar-meaning">六白金星<br>贵人财运</div>
+      </div>
+      <!-- NE N NW -->
+      <div class="fstar-cell">
+        <div class="fstar-dir">东北</div>
+        <div class="fstar-nums"><span class="fstar-mountain">8</span><span style="color:rgba(201,168,76,0.3);font-size:12px;">/</span><span class="fstar-water-num">3</span></div>
+        <div class="fstar-meaning">八白退气<br>守旧可安</div>
+      </div>
+      <div class="fstar-cell wealth">
+        <div class="fstar-dir">北 ★壬水归宿</div>
+        <div class="fstar-nums"><span class="fstar-mountain">9</span><span style="color:rgba(201,168,76,0.3);font-size:12px;">/</span><span class="fstar-water-num">5</span></div>
+        <div class="fstar-meaning">九紫入北<br>置水化五黄</div>
+      </div>
+      <div class="fstar-cell">
+        <div class="fstar-dir">西北</div>
+        <div class="fstar-nums"><span class="fstar-mountain">2</span><span style="color:rgba(201,168,76,0.3);font-size:12px;">/</span><span class="fstar-water-num">7</span></div>
+        <div class="fstar-meaning">二黑病符<br>防健康问题</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">壬水命主风水布局要点</div>
+      <div class="card-body">
+        <strong>住所/办公室选址</strong>：宜选坐北朝南、坐西朝东之宅，令北方水气归宿补身，南方财气入户。<br><br>
+        <strong>北方（坎位）</strong>：放置流水摆设（鱼缸、流水器），补旺日主壬水，增智慧与运气。<br><br>
+        <strong>西方（兑位）</strong>：放置金属或白色系物件，引金生水，增贵人运与财运。<br><br>
+        <strong>忌</strong>：北方堆杂物、安厕所；西南方过旺（土克水）。
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">2026 流年飞星提示</div>
+      <div class="card-body">
+        2026年丙午年，年紫白：<strong>二黑入中</strong>，需特别化解。<br><br>
+        <strong>中宫</strong>：放置铜葫芦或六铜钱化解二黑病符。<br>
+        <strong>东北方</strong>：五黄飞临，严禁动土装修，放铜风铃化解。<br>
+        <strong>南方</strong>：一白飞临，为贵人文昌位，可放文昌塔或水晶激活。<br>
+        <strong>西北</strong>：八白到位，为财位，可放黄晶或貔貅催旺。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 6. NAMING ══ -->
+<div class="section reveal" id="naming">
+  <div class="section-head">
+    <div class="section-icon-big">✍️</div>
+    <div class="section-titles">
+      <div class="section-num">SYSTEM 06 · 姓名学</div>
+      <div class="section-name-zh">姓 名 学</div>
+      <div class="section-name-en">Chinese Name Analysis · Stroke & Sound Energy</div>
+    </div>
+    <div class="section-badge">Name Numerology</div>
+  </div>
+
+  <div class="quote-box">
+    <div class="quote-text">「名者，命之辅也。名得其正，则与命相益；名失其道，则与命相损。」</div>
+    <div class="quote-source">— 熊崎健翁 《姓名学》</div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">姓名学五格剖象法 · 壬水命主适用名格</div>
+    <div class="card-body">
+      姓名学以<strong>天格、人格、地格、外格、总格</strong>五格笔画数，配合五行属性判断吉凶。
+      壬水命主<strong>喜水（1、6）、金（4、9）数格局</strong>，忌土（5、10）过旺克水。
+      理想名格：人格为水或金数，总格宜大吉数，五格互相流通生助。
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">各格吉凶数对照 · 壬水命主专用</div>
+    <table class="stroke-table">
+      <thead>
+        <tr>
+          <th>格位</th>
+          <th>推荐笔画数</th>
+          <th>五行</th>
+          <th>含义</th>
+          <th>吉凶</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>人格（主格）</td>
+          <td><span class="stroke-num">16</span> / <span class="stroke-num">21</span> / <span class="stroke-num">23</span></td>
+          <td>水 / 木</td>
+          <td>才智超群，领导之格</td>
+          <td class="stroke-good">★★★ 大吉</td>
+        </tr>
+        <tr>
+          <td>总格（总运）</td>
+          <td><span class="stroke-num">21</span> / <span class="stroke-num">23</span> / <span class="stroke-num">31</span></td>
+          <td>木 / 木 / 木</td>
+          <td>食神旺，才华发挥充分</td>
+          <td class="stroke-good">★★★ 大吉</td>
+        </tr>
+        <tr>
+          <td>地格（基础）</td>
+          <td><span class="stroke-num">11</span> / <span class="stroke-num">13</span> / <span class="stroke-num">15</span></td>
+          <td>木 / 火 / 土</td>
+          <td>根基稳固，发展顺畅</td>
+          <td class="stroke-good">★★ 吉</td>
+        </tr>
+        <tr>
+          <td>外格（社交）</td>
+          <td><span class="stroke-num">14</span> / <span class="stroke-num">16</span></td>
+          <td>火 / 土</td>
+          <td>人缘广，贵人多</td>
+          <td class="stroke-good">★★ 吉</td>
+        </tr>
+        <tr>
+          <td>避用笔画</td>
+          <td><span class="stroke-num" style="color:var(--fire3);">5</span> / <span class="stroke-num" style="color:var(--fire3);">10</span> / <span class="stroke-num" style="color:var(--fire3);">20</span></td>
+          <td>土</td>
+          <td>土克水，阻碍运势发展</td>
+          <td class="stroke-caution">✗ 忌用</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">音韵五行 · 发音建议</div>
+      <div class="card-body">
+        壬水命主，名字读音五行宜含<strong>水音（u韵）、金音（ang、ing韵）</strong>。<br><br>
+        吉音参考：含「沐、润、泽、清、澄」等水意字；含「铭、锦、金、晟」等金意字；含「昊、宇、恒、远」等大象字。<br><br>
+        忌用字义过燥过火：「炎、焰、烈、煊」；忌土重字：「墉、坤、培、堆」。
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">姓名能量与八字互动</div>
+      <div class="card-body">
+        名字最重要的功能是<strong>弥补八字缺失</strong>。壬水命主八字缺金（庚辛），名中宜补金气——选含金部首（钅、金旁）或金音之字。<br><br>
+        其次名字宜呼应<strong>食神（甲木）</strong>旺盛的特质，选含木部首或生机勃勃之字（木旁、草字头），可激活才华输出的通道。<br><br>
+        总原则：<strong>名如其人，字如其命</strong>，与日主壬水流通互助。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 7. FACE ══ -->
+<div class="section reveal" id="face">
+  <div class="section-head">
+    <div class="section-icon-big">👁️</div>
+    <div class="section-titles">
+      <div class="section-num">SYSTEM 07 · 面相学</div>
+      <div class="section-name-zh">面 相 学</div>
+      <div class="section-name-en">Mian Xiang · Chinese Physiognomy</div>
+    </div>
+    <div class="section-badge">相由心生</div>
+  </div>
+
+  <div class="quote-box">
+    <div class="quote-text">「相由心生，境随心转。面相者，内在能量之外化，命运之镜也。」</div>
+    <div class="quote-source">— 《神相全编》麻衣道者</div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">壬水命主面相特征与运势推断</div>
+    <div class="card-body">
+      壬水主智，面相多呈<strong>五官清秀、眼神深邃、额头饱满</strong>之象。木旺（甲木双透）则眉毛多为清长弯曲，带文人气质。午火正财，多有神采奕奕、双目有神的特征。
+    </div>
+  </div>
+
+  <div class="body-reading-grid">
+    <div class="body-diagram">
+      <div style="font-size:10px;letter-spacing:0.3em;color:var(--gold3);margin-bottom:12px;font-family:'Noto Sans TC',sans-serif;">面部十二宫位解读</div>
+      <div class="body-feature">
+        <div class="feature-icon">👁️</div>
+        <div class="feature-info">
+          <div class="feature-name">眼（监察官）</div>
+          <div class="feature-desc">壬水命主眼神宜深邃明亮，主智慧与洞察力。眼有神者，一生贵人多。忌眼神游离，主心志不定。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">🤔</div>
+        <div class="feature-info">
+          <div class="feature-name">额头（天庭）</div>
+          <div class="feature-desc">额头饱满圆润主贵气，代表早年受父母荫庇，领导运强。壬水聪明，额头好者仕途或事业运顺畅。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">👃</div>
+        <div class="feature-info">
+          <div class="feature-name">鼻（财帛宫）</div>
+          <div class="feature-desc">鼻梁高挺，鼻头圆润主财旺。命主午火为财星，配以好鼻相，中年后财运佳。鼻翼宽者守财力强。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">👄</div>
+        <div class="feature-info">
+          <div class="feature-name">口唇（出纳官）</div>
+          <div class="feature-desc">口型端正，唇色红润主口福、人缘与财运。甲木食神旺，口才好之人，唇相多为标准适中，言辞得体。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">👂</div>
+        <div class="feature-info">
+          <div class="feature-name">耳（采听官）</div>
+          <div class="feature-desc">耳朵主寿命与早年运。耳郭厚、耳垂饱满者寿长且早年家境良好。壬水对应肾，耳好则肾气足。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="body-diagram">
+      <div style="font-size:10px;letter-spacing:0.3em;color:var(--gold3);margin-bottom:12px;font-family:'Noto Sans TC',sans-serif;">面相流年宫位（43–55岁）</div>
+      <div class="body-feature">
+        <div class="feature-icon">🔆</div>
+        <div class="feature-info">
+          <div class="feature-name">43–44岁 · 颧骨区</div>
+          <div class="feature-desc">颧骨主权势与社会地位。颧骨饱满有肉者，此年段事业权威上升，适合主动出击、拓展影响力。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">🌟</div>
+        <div class="feature-info">
+          <div class="feature-name">45–50岁 · 鼻梁准头</div>
+          <div class="feature-desc">鼻为财帛宫，45–50岁流年走鼻梁至准头，财运达人生高峰期。鼻梁无节无纹者财运最顺。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">💫</div>
+        <div class="feature-info">
+          <div class="feature-name">51–55岁 · 人中法令</div>
+          <div class="feature-desc">人中深长主寿，法令纹清晰主权威与管理力强。此阶段命主宜发挥领导才能，建立传承基础。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">⚠️</div>
+        <div class="feature-info">
+          <div class="feature-name">面相护持要点</div>
+          <div class="feature-desc">气色是面相中最重要的动态指标。壬水宜保持面色润泽有光，忌面色暗黄（土旺）或面色惨白（气虚）。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 8. PALM ══ -->
+<div class="section reveal" id="palm">
+  <div class="section-head">
+    <div class="section-icon-big">✋</div>
+    <div class="section-titles">
+      <div class="section-num">SYSTEM 08 · 手相学</div>
+      <div class="section-name-zh">手 相 学</div>
+      <div class="section-name-en">Shou Xiang · Chinese Palmistry</div>
+    </div>
+    <div class="section-badge">掌中乾坤</div>
+  </div>
+
+  <div class="quote-box">
+    <div class="quote-text">「掌中有乾坤，纹理藏天机。左手定先天，右手看后天造化。」</div>
+    <div class="quote-source">— 《手相秘传》</div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">手相总论 · 壬水命主掌型特征</div>
+    <div class="card-body">
+      壬水命主掌型多为<strong>「哲学型手」或「混合型手」</strong>——手指修长、掌心纹路细密，反映思维细腻、直觉敏锐、善于分析。
+      甲木双透，手指多修长而有节感，代表艺术与哲思能力。午火正财，手掌色泽宜红润，主财运旺。
+    </div>
+  </div>
+
+  <div class="body-reading-grid">
+    <div class="body-diagram">
+      <div style="font-size:10px;letter-spacing:0.3em;color:var(--gold3);margin-bottom:12px;font-family:'Noto Sans TC',sans-serif;">主要掌纹解读</div>
+      <div class="body-feature">
+        <div class="feature-icon">❤️</div>
+        <div class="feature-info">
+          <div class="feature-name">感情线（心线）</div>
+          <div class="feature-desc">感情线长而清晰者，感情专一，付出深重。壬水感情细腻，若感情线末端上翘入食指下，主深情而理智并重的感情观。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-info">
+          <div class="feature-name">智慧线（头脑线）</div>
+          <div class="feature-desc">壬水命主智慧线宜长而微弯向月丘，代表直觉力强、创意丰富、思维跨界。若智慧线清晰无断，主一生思维清晰，判断准确。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">🌿</div>
+        <div class="feature-info">
+          <div class="feature-name">生命线</div>
+          <div class="feature-desc">生命线不代表寿命长短，而代表生命力与健康。壬水宜生命线饱满圆弧，护住金星丘。若生命线有分支向上，主40岁后运势转佳，事业再上层楼。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">⭐</div>
+        <div class="feature-info">
+          <div class="feature-name">命运线（土星线）</div>
+          <div class="feature-desc">命运线清晰者，人生目标明确，中年后事业稳健。壬水命主若命运线在30岁后出现并延伸，代表大器晚成、厚积薄发之命格印证。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="body-diagram">
+      <div style="font-size:10px;letter-spacing:0.3em;color:var(--gold3);margin-bottom:12px;font-family:'Noto Sans TC',sans-serif;">特殊手纹与吉祥纹路</div>
+      <div class="body-feature">
+        <div class="feature-icon">✡️</div>
+        <div class="feature-info">
+          <div class="feature-name">所罗门纹（木星纹）</div>
+          <div class="feature-desc">食指根部出现星纹或方格纹，主领导力与权威，称「所罗门环」。壬水命主若有此纹，领袖之才毋庸置疑。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">🏅</div>
+        <div class="feature-info">
+          <div class="feature-name">太阳线（名誉线）</div>
+          <div class="feature-desc">无名指下出现清晰纵线，主名誉、艺术才华与名气。壬水食神旺，若有太阳线，在创意或专业领域可获声誉。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">💰</div>
+        <div class="feature-info">
+          <div class="feature-name">财运线（水星线）</div>
+          <div class="feature-desc">小指根部出现清晰纵线，主商业头脑与财运。若财运线与命运线相交或平行，代表中年后财运与事业双旺。</div>
+        </div>
+      </div>
+      <div class="body-feature">
+        <div class="feature-icon">🔷</div>
+        <div class="feature-info">
+          <div class="feature-name">神秘十字（直觉纹）</div>
+          <div class="feature-desc">智慧线与感情线之间出现十字纹，主第六感强、直觉准确。壬水以智慧见长，此纹若有，加强判断力，遇事能先机而动。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 9. MEIHUA ══ -->
+<div class="section reveal" id="meihua">
+  <div class="section-head">
+    <div class="section-icon-big">🌸</div>
+    <div class="section-titles">
+      <div class="section-num">SYSTEM 09 · 梅花易数</div>
+      <div class="section-name-zh">梅 花 易 数</div>
+      <div class="section-name-en">Mei Hua Yi Shu · Plum Blossom Numerology</div>
+    </div>
+    <div class="section-badge">邵康节心法</div>
+  </div>
+
+  <div class="quote-box">
+    <div class="quote-text">「天下之物，皆可以卦言之。一物藏一乾坤，一事含一太极。」</div>
+    <div class="quote-source">— 邵雍（邵康节）《梅花易数》</div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">梅花易数起卦原理</div>
+    <div class="card-body">
+      梅花易数由北宋理学大家<strong>邵雍</strong>所创，以<strong>万物皆有数，数皆可卦</strong>为核心。
+      观察日常随机现象（时间、声音、数字、物象），以先天八卦数起卦，得上下卦及动爻，
+      再以<strong>五行生克、用神体用</strong>判断吉凶。特点：<strong>起卦随机，断卦精准</strong>，常令人叹为观止。
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:16px;">
+    <div class="card">
+      <div class="card-title">以出生年月日起先天卦 · 命主本卦</div>
+      <div class="card-body">
+        以1983年4月24日巳时起梅花数：<br>
+        年数：1983 → 各位数相加 → 21 → 3（震卦）<br>
+        月日数：4+24 = 28 → 4（巽卦）<br>
+        <strong>上卦：震（☳）· 下卦：巽（☴）</strong><br><br>
+        得卦：<strong>「雷风恒」</strong>（第32卦）<br><br>
+        恒者，恒久也。此卦主<strong>坚持不变、持续积累、稳健前行</strong>。
+        命主一生特质：不轻言放弃，凭借持续努力与坚韧最终成就大业。
+      </div>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <div class="hexagram-display">
+        <div style="font-size:10px;letter-spacing:0.3em;color:var(--gold3);margin-bottom:8px;">雷风恒 · 第三十二卦</div>
+        <!-- 上卦 震 (yang yang yin) -->
+        <div class="hex-line"><div class="hex-yin-l"></div><div class="hex-space"></div><div class="hex-yin-r"></div></div>
+        <div class="hex-line"><div class="hex-yang"></div></div>
+        <div class="hex-line"><div class="hex-yang"></div></div>
+        <!-- 下卦 巽 (yang yin yang) -->
+        <div class="hex-line"><div class="hex-yang"></div></div>
+        <div class="hex-line"><div class="hex-yang"></div></div>
+        <div class="hex-line"><div class="hex-yin-l"></div><div class="hex-space"></div><div class="hex-yin-r"></div></div>
+        <div class="hex-name">恒</div>
+        <div class="hex-meaning">雷风相薄 · 恒久之道</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divination-box">
+    <div class="divination-question">「雷风恒」卦象解读 · 命主一生密码</div>
+    <div class="divination-answer">
+      <strong style="color:var(--gold2)">卦辞：</strong>「恒，亨，无咎，利贞，利有攸往。」<br><br>
+      <strong style="color:var(--gold2)">彖传解读：</strong>
+      恒卦阴阳刚柔相应，雷动风随，上下呼应，象征持久不变的力量。命主一生须以「<strong>恒久之心</strong>」经营一切——事业、感情、修身皆需持续投入，不可半途而废。<br><br>
+      <strong style="color:var(--gold2)">对命主的启示：</strong>
+      壬水命主最大的优势在于<em>深度思考</em>与<em>持续学习</em>的能力。恒卦提醒：不必羡慕他人速成之富贵，命主的成功来自<strong>积累与深耕</strong>。「利有攸往」——此卦鼓励命主主动前行、积极开拓，不要固守原地。<br><br>
+      <strong style="color:var(--gold2)">2026年梅花断：</strong>
+      以2026年丙午年起本年卦，得「水火既济」之象，主<strong>阴阳平衡、事业大成、百事顺遂</strong>，是命主行动与收获并行的关键一年。
+    </div>
+  </div>
+</div>
+
+<!-- ══ 10. LIUYAO ══ -->
+<div class="section reveal" id="liuyao">
+  <div class="section-head">
+    <div class="section-icon-big">📊</div>
+    <div class="section-titles">
+      <div class="section-num">SYSTEM 10 · 六爻纳甲</div>
+      <div class="section-name-zh">六 爻 纳 甲</div>
+      <div class="section-name-en">Liu Yao · Six Line I Ching Divination</div>
+    </div>
+    <div class="section-badge">易学正宗</div>
+  </div>
+
+  <div class="quote-box">
+    <div class="quote-text">「六爻之法，以卦纳干支，以五行论生克，以六亲定人事，吉凶悔吝皆在其中。」</div>
+    <div class="quote-source">— 京房 《京氏易传》</div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div class="card-title">六爻纳甲 · 系统精要</div>
+    <div class="card-body">
+      六爻纳甲由汉代<strong>京房</strong>所创，将八卦六爻配入<strong>天干地支、五行六亲</strong>，
+      以<strong>「用神」</strong>为占断核心，辅以<strong>日建月破、飞伏神</strong>等规则，判断具体事项的吉凶走向。
+      六亲分别对应：<strong>父母（文书、长辈）、兄弟（朋友、竞争）、子孙（喜庆、医药）、
+      妻财（财运、女性）、官鬼（事业、官司）</strong>，对应人生各面向。
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:16px;">
+    <div class="card">
+      <div class="card-title">壬水命主六亲对应分析</div>
+      <div class="card-body">
+        <strong style="color:var(--water3)">妻财爻（午火、巳火）</strong>：为日主所克，财星临世爻，财运有根，正偏财皆有机，但须防财多身弱之患。<br><br>
+        <strong style="color:var(--wood3)">子孙爻（甲木）</strong>：食神化子孙，克制官鬼（障碍），主一生少官非口舌，享受自由，创意发挥无阻。<br><br>
+        <strong style="color:var(--gold2)">官鬼爻（土）</strong>：被日主所侮，正官偏弱，主命主<strong>不宜为人之下属</strong>，更适合自主创业或专业自由工作。<br><br>
+        <strong style="color:var(--water3)">父母爻（水）</strong>：与日主同气，文书运强，考试、证书、合约皆顺，<strong>文件与学历为重要助力</strong>。
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">2026年流年六爻参考卦象</div>
+      <div class="card-body">
+        以丙午年、癸卯月起六爻课：<br>
+        本卦：<strong>「地水师」</strong> — 主谋划、统筹、领导群众之象。<br>
+        变卦：<strong>「地风升」</strong> — 主循序渐进，稳步提升。<br><br>
+        <strong style="color:var(--wood3)">用神分析</strong>：妻财爻（午火）发动，化子孙（木），财来自创意与才华，且财入库，有积蓄之象。<br><br>
+        <strong style="color:var(--gold2)">断语</strong>：2026年宜积极拓展事业，以专业才华换取财富。贵人在西北方，合作项目有利可图，<strong>忌冲动借贷</strong>，守住已有成果为上。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">六爻用神表 · 命主各项事务占问指引</div>
+    <div class="card-body" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+      <div>
+        <strong style="color:var(--gold2)">占财运</strong> → 用神：妻财爻（午巳火）<br>
+        <span style="font-size:11px;color:rgba(242,232,208,0.5);">喜：旺相有气，日月生扶；忌：入墓化绝</span>
+      </div>
+      <div>
+        <strong style="color:var(--jade2)">占事业</strong> → 用神：官鬼爻（土）<br>
+        <span style="font-size:11px;color:rgba(242,232,208,0.5);">壬水克土，自主创业比打工更顺</span>
+      </div>
+      <div>
+        <strong style="color:var(--fire3)">占感情</strong> → 用神：妻财爻<br>
+        <span style="font-size:11px;color:rgba(242,232,208,0.5);">女方看妻财，男方看官鬼（感情）</span>
+      </div>
+      <div>
+        <strong style="color:var(--water3)">占健康</strong> → 用神：世爻与子孙爻<br>
+        <span style="font-size:11px;color:rgba(242,232,208,0.5);">子孙旺，健康佳；官鬼动克世，防病</span>
+      </div>
+      <div>
+        <strong style="color:var(--wood3)">占考试</strong> → 用神：父母爻（水）<br>
+        <span style="font-size:11px;color:rgba(242,232,208,0.5);">水为父母，命主考试运天生旺盛</span>
+      </div>
+      <div>
+        <strong style="color:var(--metal3)">占出行</strong> → 用神：世爻动静<br>
+        <span style="font-size:11px;color:rgba(242,232,208,0.5);">世爻旺动，出行大吉；忌六冲六害</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SYNTHESIS ══ -->
+<div class="section reveal" id="synthesis">
+  <div class="section-head">
+    <div class="section-icon-big">☯</div>
+    <div class="section-titles">
+      <div class="section-num">SYNTHESIS · 综合论断</div>
+      <div class="section-name-zh">十 法 综 论 · 命 主 人 生 密 码</div>
+      <div class="section-name-en">Grand Synthesis · Life's Hidden Pattern</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;border-color:rgba(201,168,76,0.3);">
+    <div class="card-body" style="font-size:14px;line-height:2.3;">
+      综合十大玄学系统推算，<strong style="color:var(--gold2)">壬水命主</strong>之人生密码如下：<br><br>
+      ① <strong>先天格局</strong>（八字+紫微）：智慧型、才华型命格，贵人运极强，适合以头脑与专业立命。<br>
+      ② <strong>时机策略</strong>（奇门+六壬）：当前正处生命中最重要的布局期，宜向西北、北方发展，2026–2031年是黄金行动窗口。<br>
+      ③ <strong>宏观天势</strong>（太乙神数）：2031年前后太乙亲临，为一生最旺之时，届时所有积累将迎来最大回报。<br>
+      ④ <strong>空间能量</strong>（玄空风水）：居家宜坐北朝南，北方置水补身，西方引金增运，可大幅提升整体运势。<br>
+      ⑤ <strong>内在修炼</strong>（梅花+六爻）：恒卦指引坚持之道，既济卦预示2026年成果落地。以恒心持续行动，终成大器。<br><br>
+      <strong style="color:var(--gold2)">一句话命格总结：</strong>「<em style="color:var(--water3)">天河壬水，智深如海，厚积薄发，中年盛放，晚年优游，一生以智慧书写传奇。</em>」
+    </div>
+    <div class="tags" style="margin-top:16px;">
+      <span class="tag tag-gold">大器晚成</span>
+      <span class="tag tag-water">智慧命格</span>
+      <span class="tag tag-jade">贵人运强</span>
+      <span class="tag tag-wood">才华横溢</span>
+      <span class="tag tag-gold">2031顶峰</span>
+      <span class="tag tag-water">厚积薄发</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="footer">
+  <div class="footer-trigrams">☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷</div>
+  <div class="footer-text">
+    中华玄学全典 · 壬水命主专属推算<br>
+    癸亥年 甲辰月 壬午日 甲巳时 · 男命 · 1983年4月24日<br>
+    ────────────────────────────<br>
+    此典综合八字、紫微斗数、奇门遁甲、六壬神课、太乙神数<br>
+    玄空风水、姓名学、面相、手相、梅花易数、六爻纳甲十大系统<br>
+    仅供参考借鉴 · 命运终由己造 · 知命方能造命<br>
+    <span style="color:rgba(201,168,76,0.15);">CHINESE METAPHYSICS COMPLETE · ALL TEN SYSTEMS</span>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+// ── PASSWORD LOGIC ──
+var CORRECT = 'Malaysia1983';
+var attempts = 0;
+var pwVisible = false;
+
+function checkPassword() {
+  var val = document.getElementById('pw-input').value;
+  var errEl = document.getElementById('lock-error');
+  var input = document.getElementById('pw-input');
+  var attemptEl = document.getElementById('attempt-count');
+
+  if (val === CORRECT) {
+    input.classList.remove('error');
+    input.classList.add('success');
+    errEl.classList.remove('show');
+    var lockScreen = document.getElementById('lock-screen');
+    var mainContent = document.getElementById('main-content');
+    setTimeout(function() {
+      lockScreen.classList.add('lock-screen-hidden');
+      setTimeout(function() {
+        lockScreen.style.display = 'none';
+        mainContent.classList.add('unlocked');
+        initApp();
+      }, 800);
+    }, 300);
+  } else {
+    attempts++;
+    input.classList.add('error');
+    input.classList.remove('success');
+    errEl.classList.add('show');
+    setTimeout(function() { input.classList.remove('error'); }, 500);
+    if (attempts >= 3) {
+      attemptEl.textContent = '尝试次数 · Attempts: ' + attempts;
+    }
+    setTimeout(function() { input.value = ''; }, 300);
+  }
+}
+
+function togglePw() {
+  pwVisible = !pwVisible;
+  var input = document.getElementById('pw-input');
+  var btn = document.getElementById('toggle-pw-btn');
+  if (pwVisible) {
+    input.type = 'text';
+    btn.textContent = '🙈';
+  } else {
+    input.type = 'password';
+    btn.textContent = '👁';
+  }
+}
+
+document.getElementById('pw-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkPassword();
+});
+
+// ── INIT APP after unlock ──
+function initApp() {
+  // Reveal animation observer
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+  // Nav scroll tracking
+  var NAV_IDS = ['overview','bazi','ziwei','qimen','liuren','taiyi','fengshui','naming','face','palm','meihua','liuyao'];
+  window.addEventListener('scroll', function() {
+    var current = '';
+    document.querySelectorAll('.section[id]').forEach(function(sec) {
+      if (sec.getBoundingClientRect().top < 120) current = sec.id;
+    });
+    document.querySelectorAll('.nav-tab').forEach(function(tab, i) {
+      tab.classList.toggle('active', NAV_IDS[i] === current);
+    });
+  });
+
+  // Starfield canvas
+  var canvas = document.createElement('canvas');
+  document.getElementById('cosmos').appendChild(canvas);
+  var ctx = canvas.getContext('2d');
+  var stars = [];
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = [];
+    for (var i = 0; i < 120; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.2 + 0.2,
+        a: Math.random() * Math.PI * 2,
+        s: Math.random() * 0.004 + 0.001,
+        gold: Math.random() > 0.7
+      });
+    }
+  }
+  function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(function(s) {
+      s.a += s.s;
+      var alpha = (Math.sin(s.a) + 1) / 2 * 0.6 + 0.1;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = s.gold
+        ? 'rgba(201,168,76,' + alpha + ')'
+        : 'rgba(255,255,255,' + alpha + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  drawStars();
+}
+
+// ── SCROLL TO SECTION ──
+function navScrollTo(id, el) {
+  var target = document.getElementById(id);
+  if (target) {
+    var top = target.getBoundingClientRect().top + window.pageYOffset - 60;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  }
+  document.querySelectorAll('.nav-tab').forEach(function(t) { t.classList.remove('active'); });
+  if (el) el.classList.add('active');
+}
+</script>
+</div><!-- /main-content -->
+</body>
+</html>
